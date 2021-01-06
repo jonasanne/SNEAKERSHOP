@@ -1,7 +1,8 @@
+// todo uitwerken
 <template>
-  <div class="p-16">
-    <h1>Home</h1>
-  </div>
+<nav class="bg-gray-300 w-full">
+    <h1>Navigation</h1>
+</nav>
 </template>
 
 <script lang="ts">
