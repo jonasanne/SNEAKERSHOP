@@ -1,7 +1,7 @@
 // todo uitwerken
 <template>
-<nav class="bg-gray-300 w-full">
-    <h1>Navigation</h1>
+<nav class="bg-gray-300 w-full c-app-header-nav justify-between">
+    <router-link class="c-app-header-nav__logo" to="/home">SNEAKERSHOP</router-link>
 </nav>
 </template>
 

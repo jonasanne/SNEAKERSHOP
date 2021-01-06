@@ -4,6 +4,4 @@ export default interface Shoe{
     color: string;
     sizes: Array<number>;
     model: string;
- 
-
 }
