@@ -1,6 +1,6 @@
 <template>
   <div class="p-16">
-    <h1>Not found... 😢</h1>
+    <h1>Not found...</h1>
     <p>Error 404.</p>
   </div>
 </template>

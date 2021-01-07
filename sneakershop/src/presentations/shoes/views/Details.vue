@@ -1,15 +1,11 @@
 <template>
-  <div class="Detail">
-      <h1>Welcome to home page</h1>
+  <div class="p-16">
+    <h1>Detail</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent } from 'vue';
 
-@Options({
-  components: {
-  }
-})
-export default class Home extends Vue {}
+export default defineComponent({});
 </script>
