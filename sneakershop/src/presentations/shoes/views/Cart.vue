@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col md:flex-row justify-between  ">
+  <div class="flex flex-col lg:flex-row justify-between  ">
     <!-- left -->
-    <div class="pt-8 md:w-3/4 md:pl-14 px-6 ">
+    <div class="pt-8 lg:w-3/4 lg:pl-14 px-6 ">
       <h1 class=" font-semibold text-3xl">My Cart</h1>
       <div class="h-full flex-col flex">
         <!-- cart items -->
@@ -19,17 +19,17 @@
           </div>
           <!-- name shoes -->
           <div
-            class="ml-2 md:ml-8 flex md:flex-row flex-col  justify-between w-full"
+            class="ml-2 lg:ml-8 flex lg:flex-row flex-col  justify-between w-full c-app-cartitem__name "
           >
             <div>
-              <p class=" text-sm md:text-xl">
+              <p class=" text-sm lg:text-xl">
                 Nike <span class="font-semibold">Court</span> Vision Low
               </p>
-              <p class="font-semibold md:text-lg">Black</p>
+              <p class="font-semibold lg:text-lg">Black</p>
             </div>
             <!-- amount shoes -->
             <div
-              class="flex  c-app-cartitem__item md:justify-center md:items-center"
+              class="flex  c-app-cartitem__item lg:justify-center lg:items-center"
             >
               <button
                 class="rounded-full bg-darkGrey c-app-cartitem__button mr-3"
@@ -50,7 +50,7 @@
                 </svg>
               </button>
               <!-- amount count -->
-              <p class="md:text-2xl ">1</p>
+              <p class="lg:text-2xl ">1</p>
               <button
                 class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
               >
@@ -71,15 +71,17 @@
           </div>
 
           <div
-            class=" flex justify-between items-end c-app-cartitem__item flex-col-reverse md:flex-row md:justify-around md:items-center"
+            class=" flex justify-between items-end c-app-cartitem__item flex-col-reverse lg:flex-row lg:justify-around lg:items-center"
           >
             <!-- price shoes -->
-            <p class="md:text-xl">€145</p>
+            <p class="lg:text-xl">€145</p>
             <!-- trash shoes -->
-            <div class="flex justify-end items-center c-app-cartitem__item w-max">
+            <div
+              class="flex justify-end items-center c-app-cartitem__item w-max"
+            >
               <button class="rounded-full bg-darkGrey c-app-cartitem__button ">
                 <svg
-                class="svg-button-cross"
+                  class="svg-button-cross"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20.142 20.142"
                 >
@@ -98,33 +100,36 @@
       </div>
     </div>
 
-
     <!-- right -->
-    <div class="bg-darkGrey pt-8 md:w-1/4  md:h-screen mt-12  md:mt-0">
+    <div class="bg-darkGrey pt-8 lg:w-1/4  lg:h-screen mt-12  lg:mt-0">
       <!-- right -->
       <div>
         <!-- top -->
-        <h1 class="font-semibold text-3xl md:px-10 px-6">Summary</h1>
+        <h1 class="font-semibold text-3xl lg:px-10 px-6 text-center mb-4">Summary</h1>
         <hr class="underline" />
-        <div class="flex justify-between  mt-6 md:px-10 px-6">
+        <div class="flex justify-between  mt-6 lg:px-10 px-6">
           <!-- subtotal -->
-          <p class="md:text-xl">Subtotal</p>
-          <p class="md:text-xl font-semibold">€290</p>
+          <p class="lg:text-xl">Subtotal</p>
+          <p class="lg:text-xl font-semibold">€290</p>
         </div>
-        <div class="flex justify-between md:px-10 px-6">
+        <div class="flex justify-between lg:px-10 px-6">
           <!-- shipping -->
-          <p class="md:text-xl font">Shipping</p>
-          <p class="md:text-xl font-semibold">€7.99</p>
+          <p class="lg:text-xl font">Shipping</p>
+          <p class="lg:text-xl font-semibold">€7.99</p>
         </div>
       </div>
-      <div class="bottom md:mt-80 px-6 md:px-10 mt-4  flex align-middle flex-col">
-        <div class="flex justify-between ">
+      <div
+        class="bottom lg:mt-80 px-6 lg:px-10 mt-4  flex align-middle flex-col"
+      >
+        <div class="flex justify-between">
           <!-- total -->
-          <p class="md:text-3xl">Total</p>
-          <p class="md:text-3xl font-semibold">€297.99</p>
+          <p class="lg:text-3xl">Total</p>
+          <p class="lg:text-3xl font-semibold">€297.99</p>
         </div>
         <!-- buton -->
-        <div class="uppercase c-app__button py-4 text-center bg-mint mt-10 mb-10">
+        <div
+          class="uppercase c-app__button py-4 text-center bg-mint mt-10 mb-10"
+        >
           <p class="">
             checkout(
             <span class="font-bold">€152.99</span>

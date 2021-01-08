@@ -108,7 +108,6 @@ html {
   height: 20px;
   
 }
-
 .c-app-cartitem__item {
   max-width: 200px;
 }
@@ -121,6 +120,10 @@ html {
   height: 10px;
   fill: black;
 }
+.c-app-cartitem__name{
+  max-width: 500px;
+}
+
 //UNDERLINE
 .underline {
   border-top: white 2px solid;
