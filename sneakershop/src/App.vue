@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="px-6 md:px-20">
     <navigation />
     <router-view></router-view>
   </div>
@@ -35,14 +35,7 @@ html {
     background: var(--global-background-color);
     font-family: 'Titillium Web', sans-serif;
 }
-.c-app-header-nav__logo{
-  letter-spacing: 5px;
-  font-weight: bold;
-  font-size: 2rem;
-}
-.c-app-header-nav{
-  padding: 0 5rem;
-}
+
 
 // buttons
 .c-app__button{
@@ -81,5 +74,24 @@ html {
       right: 50%;
   }
 }
+
+.z-m-1{
+  z-index: -1;
+}
+.d-h{
+  background-color: pink;
+  height: 100px;
+}
+.fila_logo{
+  max-width: 140px;
+}
+.nike_logo{
+  max-width: 150px;
+}
+.wrapper-card{
+  flex: 0 0 auto;
+  max-width: 150px;
+}
+
 
 </style>

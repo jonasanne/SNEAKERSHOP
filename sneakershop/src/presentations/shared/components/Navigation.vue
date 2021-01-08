@@ -1,17 +1,19 @@
 // todo uitwerken
-<template>
-<nav class="bg-gray-300 w-full c-app-header-nav justify-between">
-    <router-link class="c-app-header-nav__logo" to="/home">SNEAKERSHOP</router-link>
+// pt-4 pb-4 md:px-20 sm:px-2
+<template> 
+  <nav class="flex justify-between  items-center  py-5 z-10">
+    <router-link class="font-bold tracking-widest text-2xl md:text-4xl " to="/"
+      >SNEAKERSHOP</router-link
+    >
     <router-link class="" to="/cart">
-    <!-- icon -->
-    CART
+      <!-- icon -->
+        <img src="@/assets/icons/icon-shopping-cart.svg" alt="shopping cart icon">
     </router-link>
-
-</nav>
+  </nav>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({});
 </script>
