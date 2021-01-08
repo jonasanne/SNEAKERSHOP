@@ -44,8 +44,6 @@ html {
   padding: 0 5rem;
 }
 
-
-
 // buttons
 .c-app__button{
   background-color: map-get($map: $colors-neutral, $key: "mint");
