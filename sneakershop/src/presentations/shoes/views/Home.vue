@@ -1,5 +1,5 @@
 <template>
-  <div class="d-h">
+  <div class="d-h px-6 md:px-20">
     <img class="absolute inset-0 z-m-1" src="@/assets/images/trapezium-left.svg" alt="">
   </div>
   <brands/>
