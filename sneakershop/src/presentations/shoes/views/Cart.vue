@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col lg:flex-row justify-between  ">
+  <div class="flex flex-col lg:flex-row justify-between">
     <!-- left -->
-    <div class="pt-8 lg:w-3/4 lg:pl-14 px-6 ">
+    <div class="pt-8 lg:w-3/4 lg:pl-14 px-6">
       <h1 class=" font-semibold text-3xl">My Cart</h1>
       <div class="h-full flex-col flex">
         <!-- cart items -->
@@ -105,7 +105,9 @@
       <!-- right -->
       <div>
         <!-- top -->
-        <h1 class="font-semibold text-3xl lg:px-10 px-6 text-center mb-4">Summary</h1>
+        <h1 class="font-semibold text-3xl lg:px-10 px-6 text-center mb-4">
+          Summary
+        </h1>
         <hr class="underline" />
         <div class="flex justify-between  mt-6 lg:px-10 px-6">
           <!-- subtotal -->
