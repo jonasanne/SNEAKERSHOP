@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between overflow-x-auto flex-nowrap py-10 px-6 md:px-20 ">
+  <div class="flex justify-between overflow-x-auto flex-nowrap py-10 px-6 md:px-20 align ">
     <div class=" max-h-80 w-full flex justify-center align-middle wrapper-card">
       <img
         src="@/assets/images/brands/Nike.svg"

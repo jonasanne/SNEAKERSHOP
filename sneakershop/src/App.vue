@@ -26,6 +26,7 @@ $colors-neutral: (
   "light-grey": #fbfbfb,
   "dark-grey": #f6f6f6,
   "mint": #26f8e2,
+  "mint-light": #53ffee,
 );
 
 html {
@@ -91,13 +92,14 @@ html {
 .all-unset {
   all: unset;
 }
-
-//-----------COMPONENTS-----------
-//APP
-.app {
+.align {
   max-width: 1500px;
   margin: auto;
 }
+
+//-----------COMPONENTS-----------
+
+
 
 //BRANDS
 .wrapper-card {
@@ -158,6 +160,37 @@ html {
   width: 400px;
 }
 
+//NEWSLETTER
+
+.input-email {
+  width: 250px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 5px;
+  &:focus{
+    outline: none;
+  }
+}
+.btn-send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  &:focus {
+    outline: none;
+  }
+  &:hover{
+    background-color: map-get($map: $colors-neutral, $key: "mint-light");
+  }
+}
+.svg-send-button {
+  height: 15px;
+  width: 15px;
+}
 
 //CART LOCATION
 .icon-container-location {
@@ -185,6 +218,10 @@ $breakpoint-medium: 768px;
     width: 40px;
     height: 40px;
   }
+  .input-email {
+  width: 300px;
+}
+
 }
 $breakpoint-large: 1024px;
 @media (min-width: $breakpoint-large) {
@@ -192,8 +229,8 @@ $breakpoint-large: 1024px;
     min-width: 500px;
   }
   .home-item {
-  min-height: 800px;
-  max-height: 1000px;
-}
+    min-height: 800px;
+    max-height: 900px;
+  }
 }
 </style>
