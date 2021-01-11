@@ -1,14 +1,16 @@
 <template>
-  <div class="d-h px-6 md:px-20 h-screen flex  items-center justify-between">
+  <div
+    class="d-h px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
+  >
     <img
-      class="absolute inset-0 z-m-1"
+      class="absolute inset-0 z-m-1 trapezium-left invisible xl:visible"
       src="@/assets/images/trapezium-left.svg"
       alt=""
     />
     <img
       src="@/assets/images/shoes/nike_court_vison.png"
       alt=""
-      class="shoe-image"
+      class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
     <div class="shoe-details">
       <p class="name text-2xl">
@@ -22,9 +24,7 @@
         shots of old-school basketball, and the super soft, low-cut collar
         creates a streamlined look that's comfortable all day long.
       </p>
-      <div
-        class="uppercase c-app__button py-4 text-center bg-mint  mt-10 mb-10"
-      >
+      <div class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 ">
         <p>details</p>
         <span class="c-app__button-underline"></span>
       </div>

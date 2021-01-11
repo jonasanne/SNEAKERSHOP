@@ -36,7 +36,6 @@ html {
 
 // buttons
 .c-app__button {
-  all: unset;
   width: 100%;
   text-decoration: none;
   max-width: 300px;
@@ -45,6 +44,17 @@ html {
   &:hover > .c-app__button-underline::before,
   &:hover > .c-app__button-underline::after {
     width: 50%;
+  }
+}
+.c-app__button-home {
+  width: 100%;
+  text-decoration: none;
+  max-width: 150px;
+  margin-left: auto;
+  cursor: pointer;
+  &:hover > .c-app__button-underline::before,
+  &:hover > .c-app__button-underline::after {
+    width: 30%;
   }
 }
 //span with this class for underline animation
@@ -82,14 +92,12 @@ html {
   all: unset;
 }
 
-
 //-----------COMPONENTS-----------
 //APP
-.app{
-  max-width: 1400px;
+.app {
+  max-width: 1500px;
   margin: auto;
 }
-
 
 //BRANDS
 .wrapper-card {
@@ -126,19 +134,28 @@ html {
 .c-app-cartitem__name {
   max-width: 500px;
 }
-.price{
+.price {
   max-width: 60%;
 }
 
 //HOME
-.shoe-image{
+.shoe-image {
   max-width: 600px;
   width: 100%;
   height: auto;
 }
-.shoe-details{
-max-width: 500px;
+.shoe-details {
+  max-width: 500px;
+}
 
+.trapezium-left {
+  max-height: 925px;
+}
+.square-left {
+  top: 0;
+  left: 0;
+  height: 800px;
+  width: 400px;
 }
 
 
@@ -169,5 +186,14 @@ $breakpoint-medium: 768px;
     height: 40px;
   }
 }
-
+$breakpoint-large: 1024px;
+@media (min-width: $breakpoint-large) {
+  .shoe-details {
+    min-width: 500px;
+  }
+  .home-item {
+  min-height: 800px;
+  max-height: 1000px;
+}
+}
 </style>
