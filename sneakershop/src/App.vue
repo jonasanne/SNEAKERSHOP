@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="app">
     <navigation />
     <router-view></router-view>
   </div>
@@ -82,7 +82,14 @@ html {
   all: unset;
 }
 
+
 //-----------COMPONENTS-----------
+//APP
+.app{
+  max-width: 1400px;
+  margin: auto;
+}
+
 
 //BRANDS
 .wrapper-card {
@@ -106,40 +113,61 @@ html {
   align-items: center;
   width: 20px;
   height: 20px;
-  
 }
-.c-app-cartitem__item {
-  max-width: 200px;
-}
-.svg-button{
+.svg-button {
   width: 12px;
   height: 12px;
 }
-.svg-button-cross{
+.svg-button-cross {
   width: 10px;
   height: 10px;
   fill: black;
 }
-.c-app-cartitem__name{
+.c-app-cartitem__name {
   max-width: 500px;
+}
+.price{
+  max-width: 60%;
+}
+
+//HOME
+.shoe-image{
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+.shoe-details{
+max-width: 500px;
+
+}
+
+
+//CART LOCATION
+.icon-container-location {
+  height: 50px;
+  width: 50px;
+}
+.icon-location {
 }
 
 //UNDERLINE
-.underline {
+.underline-white {
   border-top: white 2px solid;
   max-width: 80%;
   margin-top: 0.3rem;
 }
+.underline-grey {
+  border-top: map-get($map: $colors-neutral, $key: "dark-grey") solid 3px;
+  width: 100%;
+  margin-top: 5px;
+}
 
 $breakpoint-medium: 768px;
 @media (min-width: $breakpoint-medium) {
-  .c-app-cartitem__item {
-    max-width: 300px;
-    width: 100%;
-  }
   .c-app-cartitem__button {
     width: 40px;
     height: 40px;
   }
 }
+
 </style>

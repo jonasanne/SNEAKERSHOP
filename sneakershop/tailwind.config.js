@@ -7,7 +7,8 @@ module.exports = {
 
         colors: {
             mint: "#26f8e2",
-            darkGrey: "#F6F6F6"
+            darkGrey: "#F6F6F6",
+            darkerGrey: "#DCDCDC"
         }
     },
     variants: {
