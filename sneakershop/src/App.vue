@@ -25,6 +25,7 @@ export default defineComponent({
 $colors-neutral: (
   "light-grey": #fbfbfb,
   "dark-grey": #f6f6f6,
+  "darker-grey": #dcdcdc,
   "mint": #26f8e2,
   "mint-light": #53ffee,
 );
@@ -99,8 +100,6 @@ html {
 
 //-----------COMPONENTS-----------
 
-
-
 //BRANDS
 .wrapper-card {
   flex: 0 0 auto;
@@ -168,7 +167,7 @@ html {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding-left: 5px;
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
@@ -183,7 +182,7 @@ html {
   &:focus {
     outline: none;
   }
-  &:hover{
+  &:hover {
     background-color: map-get($map: $colors-neutral, $key: "mint-light");
   }
 }
@@ -199,7 +198,6 @@ html {
 }
 .icon-location {
 }
-
 //UNDERLINE
 .underline-white {
   border-top: white 2px solid;
@@ -212,6 +210,75 @@ html {
   margin-top: 5px;
 }
 
+//DETAIL PAGE
+.background-detail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 930px;
+  fill: map-get($map: $colors-neutral, $key: "dark-grey");
+  z-index: -1;
+}
+.image-detail {
+  max-width: 650px;
+}
+
+//radiobuttons
+
+.radiobutton-size {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+  &:checked + .for-radiobutton-size {
+    border: 1px solid black;
+    background-color: map-get($map: $colors-neutral, $key: "mint");
+    text-decoration: underline;
+  }
+
+  &:disabled + .for-radiobutton-size {
+    color: map-get($map: $colors-neutral, $key: "darker-grey");
+  }
+  &:disabled + .for-radiobutton-size::before,
+  .for-radiobutton-size::after {
+    position: absolute;
+    left: 0;
+    content: " ";
+    height: 1px;
+    top: 50%;
+    width: 100%;
+    background-color: map-get($map: $colors-neutral, $key: "darker-grey");
+  }
+  &:disabled + .for-radiobutton-size::after {
+    position: absolute;
+    left: 0;
+    content: " ";
+    height: 1px;
+    top: 50%;
+    width: 100%;
+    background-color: map-get($map: $colors-neutral, $key: "darker-grey");
+  }
+
+  &:disabled + .for-radiobutton-size::before {
+    transform: rotate(45deg);
+  }
+  &:disabled + .for-radiobutton-size::after {
+    transform: rotate(-45deg);
+  }
+}
+.for-radiobutton-size {
+  background-color: #fff;
+  font-size: 1.25rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  padding: 10px;
+  border: solid 1px map-get($map: $colors-neutral, $key: "darker-grey");
+  transition: all ease-in-out 0.1s;
+}
+
 $breakpoint-medium: 768px;
 @media (min-width: $breakpoint-medium) {
   .c-app-cartitem__button {
@@ -219,9 +286,8 @@ $breakpoint-medium: 768px;
     height: 40px;
   }
   .input-email {
-  width: 300px;
-}
-
+    width: 300px;
+  }
 }
 $breakpoint-large: 1024px;
 @media (min-width: $breakpoint-large) {

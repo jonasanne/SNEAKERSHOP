@@ -18,7 +18,7 @@
             >
               <!-- image -->
               <img
-                src="@/assets/images/shoes/nike_court_vison.png"
+                src="@/assets/images/shoes/nike_court_vision.png"
                 class="c-app-cartitem__image"
                 alt="nike court vision"
               />

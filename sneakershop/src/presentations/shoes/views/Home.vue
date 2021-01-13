@@ -8,7 +8,7 @@
       alt=""
     />
     <img
-      src="@/assets/images/shoes/nike_court_vison.png"
+      src="@/assets/images/shoes/nike_court_vision.png"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
@@ -40,7 +40,7 @@
       alt=""
     />
     <img
-      src="@/assets/images/shoes/nike_court_vison.png"
+      src="@/assets/images/shoes/nike_court_vision.png"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />

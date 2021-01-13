@@ -4,6 +4,7 @@
     <router-link class="font-bold tracking-widest text-2xl md:text-4xl z-10  " to="/"
       >SNEAKERSHOP</router-link
     >
+    <!-- <router-link to="/ar">TEST AR</router-link> -->
     <router-link class="z-10" to="/cart">
       <!-- icon -->
         <img src="@/assets/icons/icon-shopping-cart.svg" alt="shopping cart icon">
