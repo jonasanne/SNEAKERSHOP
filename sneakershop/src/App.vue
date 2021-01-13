@@ -98,6 +98,7 @@ html {
   margin: auto;
 }
 
+
 //-----------COMPONENTS-----------
 
 //BRANDS
@@ -211,16 +212,22 @@ html {
 }
 
 //DETAIL PAGE
+.detail-item__description {
+  max-width: 600px;
+}
 .background-detail {
   position: absolute;
   left: 0;
   top: 0;
-  height: 930px;
+  height: auto;
   fill: map-get($map: $colors-neutral, $key: "dark-grey");
   z-index: -1;
+  width: 100%;
 }
 .image-detail {
   max-width: 650px;
+  width: 100%;
+  height: auto;
 }
 
 //radiobuttons
@@ -278,6 +285,13 @@ html {
   border: solid 1px map-get($map: $colors-neutral, $key: "darker-grey");
   transition: all ease-in-out 0.1s;
 }
+//dropdown
+.amount-dropdown {
+  height: 56px;
+  width: 75px;
+  padding-left: 0.5rem;
+  border: 1px solid map-get($map: $colors-neutral, $key: "darker-grey");
+}
 
 $breakpoint-medium: 768px;
 @media (min-width: $breakpoint-medium) {
@@ -297,6 +311,10 @@ $breakpoint-large: 1024px;
   .home-item {
     min-height: 800px;
     max-height: 900px;
+  }
+  .background-detail {
+    max-width: 850px;
+    width: auto;
   }
 }
 </style>

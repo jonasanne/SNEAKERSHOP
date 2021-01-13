@@ -25,7 +25,7 @@
         creates a streamlined look that's comfortable all day long.
       </p>
       <div class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 ">
-        <p>details</p>
+        <router-link to="/details/1">Details</router-link>
         <span class="c-app__button-underline"></span>
       </div>
     </div>
