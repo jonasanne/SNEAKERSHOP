@@ -2,7 +2,7 @@
   <div
     class="align px-6 md:px-20 mt-20 flex flex-col lg:flex-row justify-between"
   >
-    <div class="w-full detail-item">
+    <div class="w-full detail-item" v-if="state.shoe.title != ''">
       <!-- left -->
       <!-- background -->
       <svg
@@ -16,14 +16,14 @@
       </svg>
       <div>
         <p class="text-3xl">
-          Nike <span class="font-semibold">Court</span> Vision Low
+          {{ state.shoe.title }}
         </p>
-        <p class="text-2xl font-semibold">Black</p>
-        <p class="font-semibold text-xl">€145</p>
+        <p class="text-2xl font-semibold">{{ state.shoe.color }}</p>
+        <p class="font-semibold text-xl">€{{ state.shoe.price }}</p>
         <img
           class="image-detail mt-12"
-          src="@/assets/images/shoes/nike_court_vision.png"
-          alt="nike court vision shoe"
+          :src="state.shoe.imgUrl"
+          :alt="state.shoe.title"
         />
       </div>
     </div>
@@ -32,11 +32,7 @@
       <p class="font-semibold text-2xl mb-2 mt-8 ">Description</p>
       <hr class="underline-grey " />
       <p class="text-xl mt-5">
-        So you're in love with the classic look of 80s basketball, but also love
-        the fast-paced look of today's sport. Discover the new Nike Court Vision
-        Low. The sleek upper and stitched overlays are inspired by the hook
-        shots of old-school basketball, and the super soft, low-cut collar
-        creates a streamlined look that's comfortable all day long.
+        {{ state.shoe.description }}
       </p>
 
       <p class="font-semibold text-2xl mb-2 mt-8 ">Select size</p>
@@ -126,7 +122,7 @@
 
         <!-- TODO: link veranderen naar Augmented Reality pagina -->
         <router-link
-          to="/details/1"
+          :to="`/detail/${state.shoe.id}`"
           class="font-semibold text-1xl flex items-center mt-5"
         >
           <!-- svg -->
@@ -147,8 +143,8 @@
 
           Discover it here</router-link
         >
-        <div class="mt-10 flex mb-10 justify-between">
-          <select name="amount" id="amount" class="amount-dropdown">
+        <div class="mt-10 flex mb-10 justify-between lg:justify-start">
+          <select name="amount" id="amount" class="amount-dropdown lg:mr-8">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -161,7 +157,8 @@
             <option value="10">10</option>
           </select>
           <div
-            class="uppercase c-app__button py-4 text-center bg-mint" style="max-width:200px; margin:0;"
+            class="uppercase c-app__button py-4 text-center bg-mint"
+            style="max-width:200px; margin:0;"
           >
             <p class="">ADD TO BASKET</p>
             <span class="c-app__button-underline"></span>
@@ -175,16 +172,64 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
+import { getItemById, saveItem } from "@/utils/idb";
 import route from "@/router";
+import Shoe from "@/models/shoe";
+import router from "@/router";
+
+type State = {
+  shoe: Shoe;
+  selectedSize: number;
+};
+
 export default defineComponent({
   setup() {
-    //TODO change name
-    const annabelle = async () => {
-      const urlId = route.currentRoute.value.params.id;
-      console.log(urlId);
+    const shoe = undefined;
+
+    const state: State = reactive({
+      shoe: {
+        id: 0,
+        title: "",
+        description: "",
+        color: "",
+        sizes: [],
+        model: "",
+        iosModel: "",
+        imgUrl: "",
+        amount: 0,
+        price: 0,
+      },
+      selectedSize: 0,
+    });
+
+    const addItemToCart = () => {
+      console.log("adding item to cart");
     };
-    annabelle();
+    const getItem = async () => {
+      console.log("getting data");
+      const urlId = route.currentRoute.value.params.id.toString();
+      await getItemById("shoes", urlId)
+        .then((data) => {
+          console.log(data.title);
+          if (data.title == undefined) {
+            //redirect
+            console.log("niet aanwezig");
+
+            router.push({name: "home"});
+          }
+          state.shoe = data;
+        })
+        .catch((error) => {
+          console.log("error");
+          router.push("home");
+        });
+    };
+
+    getItem();
+    return {
+      state,
+    };
   },
 });
 </script>

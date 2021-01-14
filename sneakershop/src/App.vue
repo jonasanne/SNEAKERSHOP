@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <navigation />
-    <router-view></router-view>
+      <router-view />
   </div>
 </template>
 
@@ -34,6 +34,18 @@ html {
   transition: background 1500ms ease-out;
   background: var(--global-background-color);
   font-family: "Titillium Web", sans-serif;
+}
+//app transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 
 // buttons
@@ -98,7 +110,6 @@ html {
   margin: auto;
 }
 
-
 //-----------COMPONENTS-----------
 
 //BRANDS
@@ -114,8 +125,13 @@ html {
   max-height: 140px;
 }
 .c-app-cartitem__image-container {
-  max-width: 140px;
-  max-height: 140px;
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+}
+.c-app-cartitem__image{
+  max-width: 90px;
+  height: auto;
 }
 .c-app-cartitem__button {
   display: flex;

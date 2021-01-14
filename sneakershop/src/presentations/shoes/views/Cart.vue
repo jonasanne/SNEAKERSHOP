@@ -1,24 +1,30 @@
 <template>
-  <div class="flex flex-col lg:flex-row justify-between">
+  <div class="flex flex-col lg:flex-row justify-between align">
     <!-- left -->
-    <div class="pt-8 lg:w-3/4 lg:pl-14 px-6 lg:pr-14">
+    <div class="pt-8 lg:w-3/4  px-6  lg:pr-14 ">
       <div>
         <h1 class=" font-semibold text-3xl">My Cart</h1>
-        <p><span class="count">2</span> items</p>
+        <p>
+          <span class="count">{{ state.total }}</span> items
+        </p>
       </div>
       <hr class="underline-grey" />
-      <div class="h-auto flex-col flex">
+      <div class="h-auto flex-col flex" v-if="shoes && shoes.length == 2">
         <!-- cart items -->
-        <div class="h-full c-app-cartitem flex pt-6">
+        <div
+          class="h-full c-app-cartitem flex pt-6"
+          v-for="shoe in shoes"
+          :key="shoe.id"
+        >
           <!-- item -->
 
           <div class="flex w-full">
             <div
-              class="bg-darkGrey flex justify-center items-center  c-app-cartitem__image-container h-full w-full rounded-lg"
+              class="bg-darkGrey flex justify-center items-center  c-app-cartitem__image-container  rounded-lg"
             >
               <!-- image -->
               <img
-                src="@/assets/images/shoes/nike_court_vision.png"
+                :src="shoe.imgUrl"
                 class="c-app-cartitem__image"
                 alt="nike court vision"
               />
@@ -26,9 +32,9 @@
             <!-- name shoe -->
             <div class="ml-4">
               <p class=" text-sm lg:text-xl">
-                Nike <span class="font-semibold">Court</span> Vision Low
+                {{ shoe.title }}
               </p>
-              <p class="font-semibold lg:text-lg">Black</p>
+              <p class="font-semibold lg:text-lg uppercase">{{ shoe.color }}</p>
             </div>
           </div>
 
@@ -42,6 +48,7 @@
                 class="flex  c-app-cartitem__item lg:justify-center lg:items-center mt-4 lg:mt-0"
               >
                 <button
+                  @click="decreaseAmount(shoe)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button mr-3"
                 >
                   <svg
@@ -60,8 +67,9 @@
                   </svg>
                 </button>
                 <!-- amount count -->
-                <p class="lg:text-2xl ">1</p>
+                <p class="lg:text-2xl ">{{ shoe.amount }}</p>
                 <button
+                  @click="increaseAmount(shoe)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
                 >
                   <svg
@@ -80,13 +88,16 @@
               </div>
 
               <!-- price shoes -->
-              <p class="lg:text-xl">€145</p>
+              <p class="lg:text-xl">€{{ shoe.price }}</p>
             </div>
             <!-- trash shoes -->
             <div
               class="flex justify-end items-center c-app-cartitem__item w-max mb-3"
             >
-              <button class="rounded-full bg-darkGrey c-app-cartitem__button ">
+              <button
+                class="rounded-full bg-darkGrey c-app-cartitem__button"
+                @click="removeShoeFromCart(shoe)"
+              >
                 <svg
                   class="svg-button-cross"
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +111,6 @@
                   />
                 </svg>
               </button>
-              <!-- delete -->
             </div>
           </div>
         </div>
@@ -213,12 +223,12 @@
         <div class="flex justify-between  mt-6 lg:px-10 px-6">
           <!-- subtotal -->
           <p class="lg:text-xl">Subtotal</p>
-          <p class="lg:text-xl font-semibold">€290</p>
+          <p class="lg:text-xl font-semibold">€{{ state.subTotal }}</p>
         </div>
         <div class="flex justify-between lg:px-10 px-6">
           <!-- shipping -->
           <p class="lg:text-xl font">Shipping</p>
-          <p class="lg:text-xl font-semibold">€7.99</p>
+          <p class="lg:text-xl font-semibold">€{{ state.shipping }}</p>
         </div>
       </div>
       <div
@@ -227,7 +237,7 @@
         <div class="flex justify-between">
           <!-- total -->
           <p class="lg:text-3xl">Total</p>
-          <p class="lg:text-3xl font-semibold">€297.99</p>
+          <p class="lg:text-3xl font-semibold">€{{ state.total }}</p>
         </div>
         <!-- buton -->
         <div
@@ -235,7 +245,7 @@
         >
           <p class="">
             checkout(
-            <span class="font-bold">€152.99</span>
+            <span class="font-bold">€{{ state.total }}</span>
             )
           </p>
           <span class="c-app__button-underline"></span>
@@ -246,7 +256,56 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Shoe from "@/models/shoe";
+import { getItems, getItemById, deleteItem, seedData } from "@/utils/idb";
+import * as jsonShoes from "@/locales/shoes.json";
+import { defineComponent, reactive } from "vue";
 
-export default defineComponent({});
+type State = {
+  shoes: Array<Shoe>;
+  total: number;
+  shipping: number;
+  subTotal: number;
+};
+
+export default defineComponent({
+  setup() {
+    const state: State = reactive({
+      shoes: [],
+      total: 0,
+      shipping: 0,
+      subTotal: 0,
+    });
+
+    const getCartItems = async () => {
+      await getItems("cartItems")
+        .then((items) => {
+          console.log("got the cart items");
+          state.shoes = items.shoes;
+        })
+        .catch((error) => {
+          // console.log(error)
+          console.log("no cart items");
+        });
+    };
+    getCartItems();
+    const increaseAmount = async (shoe: Shoe) => {
+      console.log(`busy increasing the amount of the shoe `);
+      console.log(shoe);
+      //increasing
+    };
+    const decreaseAmount = async (shoe: Shoe) => {
+      console.log(`busy decreasing the amount of the shoe `);
+      console.log(shoe);
+      //decreasing
+    };
+
+    return {
+      state,
+      increaseAmount,
+      decreaseAmount,
+      shoes: jsonShoes.shoes,
+    };
+  },
+});
 </script>
