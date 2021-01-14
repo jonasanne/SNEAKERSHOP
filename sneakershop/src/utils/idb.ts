@@ -19,7 +19,7 @@ const shoes: Array<Shoe> = [
     iosModel:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.usdz",
     imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/nike_court_vision.png",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
   },
 ];
 

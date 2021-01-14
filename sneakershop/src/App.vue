@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <navigation />
-      <router-view />
+    <router-view />
   </div>
 </template>
 
@@ -129,7 +129,7 @@ html {
   height: 120px;
   max-width: 120px;
 }
-.c-app-cartitem__image{
+.c-app-cartitem__image {
   max-width: 90px;
   height: auto;
 }
