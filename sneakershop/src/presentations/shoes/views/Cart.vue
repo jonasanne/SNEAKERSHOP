@@ -5,16 +5,19 @@
       <div>
         <h1 class=" font-semibold text-3xl">My Cart</h1>
         <p>
-          <span class="count">{{ state.total }}</span> items
+          <span class="count">{{ state.cartItems.length }}</span> items
         </p>
       </div>
       <hr class="underline-grey" />
-      <div class="h-auto flex-col flex" v-if="shoes && shoes.length == 2">
+      <div
+        class="h-auto flex-col flex"
+        v-if="state.cartItems && state.cartItems.length"
+      >
         <!-- cart items -->
         <div
           class="h-full c-app-cartitem flex pt-6"
-          v-for="shoe in shoes"
-          :key="shoe.id"
+          v-for="cartItem in state.cartItems"
+          :key="cartItem.id"
         >
           <!-- item -->
 
@@ -24,7 +27,7 @@
             >
               <!-- image -->
               <img
-                :src="shoe.imgUrl"
+                :src="cartItem.shoe.imgUrl"
                 class="c-app-cartitem__image"
                 alt="nike court vision"
               />
@@ -32,9 +35,11 @@
             <!-- name shoe -->
             <div class="ml-4">
               <p class=" text-sm lg:text-xl">
-                {{ shoe.title }}
+                {{ cartItem.shoe.title }}
               </p>
-              <p class="font-semibold lg:text-lg uppercase">{{ shoe.color }}</p>
+              <p class="font-semibold lg:text-lg uppercase">
+                {{ cartItem.shoe.color }}
+              </p>
             </div>
           </div>
 
@@ -48,7 +53,9 @@
                 class="flex  c-app-cartitem__item lg:justify-center lg:items-center mt-4 lg:mt-0"
               >
                 <button
-                  @click="decreaseAmount(shoe)"
+                  disabled
+                  v-if="cartItem.amount == 1"
+                  @click="decreaseAmount(cartItem)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button mr-3"
                 >
                   <svg
@@ -66,10 +73,29 @@
                     />
                   </svg>
                 </button>
-                <!-- amount count -->
-                <p class="lg:text-2xl ">{{ shoe.amount }}</p>
                 <button
-                  @click="increaseAmount(shoe)"
+                  v-if="cartItem.amount > 1"
+                  @click="decreaseAmount(cartItem)"
+                  class="rounded-full bg-darkGrey c-app-cartitem__button mr-3"
+                >
+                  <svg
+                    class="svg-button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 26 6"
+                  >
+                    <rect
+                      id="Rectangle_15"
+                      data-name="Rectangle 15"
+                      width="26"
+                      height="6"
+                      rx="3"
+                    />
+                  </svg>
+                </button>
+                <!-- amount count -->
+                <p class="lg:text-2xl ">{{ cartItem.amount }}</p>
+                <button
+                  @click="increaseAmount(cartItem)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
                 >
                   <svg
@@ -88,7 +114,7 @@
               </div>
 
               <!-- price shoes -->
-              <p class="lg:text-xl">€{{ shoe.price }}</p>
+              <p class="lg:text-xl">€{{ cartItem.price }}</p>
             </div>
             <!-- trash shoes -->
             <div
@@ -96,7 +122,7 @@
             >
               <button
                 class="rounded-full bg-darkGrey c-app-cartitem__button"
-                @click="removeShoeFromCart(shoe)"
+                @click="removeShoeFromCart(cartItem)"
               >
                 <svg
                   class="svg-button-cross"
@@ -256,12 +282,14 @@
 </template>
 
 <script lang="ts">
+import CartItem from "@/models/CartItem";
 import Shoe from "@/models/shoe";
+import router from "@/router";
 import { getItems, getItemById, deleteItem, seedData } from "@/utils/idb";
 import { defineComponent, reactive } from "vue";
 
 type State = {
-  shoes: Array<Shoe>;
+  cartItems: Array<CartItem>;
   total: number;
   shipping: number;
   subTotal: number;
@@ -270,7 +298,7 @@ type State = {
 export default defineComponent({
   setup() {
     const state: State = reactive({
-      shoes: [],
+      cartItems: [],
       total: 0,
       shipping: 0,
       subTotal: 0,
@@ -280,7 +308,8 @@ export default defineComponent({
       await getItems("cartItems")
         .then((items) => {
           console.log("got the cart items");
-          state.shoes = items.shoes;
+          state.cartItems = items;
+          console.log(items);
         })
         .catch((error) => {
           // console.log(error)
@@ -288,21 +317,42 @@ export default defineComponent({
         });
     };
     getCartItems();
-    const increaseAmount = async (shoe: Shoe) => {
-      console.log(`busy increasing the amount of the shoe `);
-      console.log(shoe);
-      //increasing
+
+    const removeShoeFromCart = async (cartItem: CartItem) => {
+      console.log("deleting item");
+
+      await deleteItem("cartItems", cartItem)
+        .then((response: any) => {
+          // reload page
+          console.log("reload");
+          location.reload();
+        })
+        .catch((error: any) => {
+          console.log("there has been an error");
+        });
     };
-    const decreaseAmount = async (shoe: Shoe) => {
-      console.log(`busy decreasing the amount of the shoe `);
-      console.log(shoe);
-      //decreasing
+
+    const increaseAmount = async (cartItem: CartItem) => {
+      if (cartItem.amount != 10) cartItem.amount!++;
+    };
+
+    const decreaseAmount = async (cartItem: CartItem) => {
+      console.log(cartItem.amount);
+
+      //controleren als amount naar 0 gaat
+      if (cartItem.amount == 0) {
+        removeShoeFromCart(cartItem);
+      } else {
+        //decreasing
+        cartItem.amount!--;
+      }
     };
 
     return {
       state,
       increaseAmount,
       decreaseAmount,
+      removeShoeFromCart,
     };
   },
 });

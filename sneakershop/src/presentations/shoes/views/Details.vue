@@ -154,12 +154,12 @@
         >
         <div class="mt-10 flex mb-10 justify-between lg:justify-start">
           <select
-            aria-required="true"
             name="amount"
             id="amount"
             class="amount-dropdown lg:mr-8"
             v-model="state.shoe.amount"
           >
+            <option value="" disabled>0</option>
             <option value="1" selected>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -229,8 +229,6 @@ export default defineComponent({
         color: state.shoe.color,
         //TODO FIX THIS
         // selectedSize: state.shoe.selectedSize,
-        amount: state.shoe.amount,
-        price: state.shoe.price,
         model: state.shoe.model,
         iosModel: state.shoe.iosModel,
         imgUrl: state.shoe.imgUrl,
@@ -240,13 +238,15 @@ export default defineComponent({
       const newArrayShoe = [];
       newArrayShoe.push(newShoe);
 
-      const newCart = {
-        shoes: newArrayShoe,
+      const newCartItem = {
+        shoe: newShoe,
         date: new Date().toLocaleString(),
+        amount: state.shoe.amount,
+        price: state.shoe.price,
       };
-      console.log(newCart);
+      console.log(newCartItem);
 
-      await saveItem("cartItems", newCart)
+      await saveItem("cartItems", newCartItem)
         .then((response) => {
           console.log("correct");
           alert("Item correctly added to your Cart");

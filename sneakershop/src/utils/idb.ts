@@ -78,7 +78,7 @@ const getDb = async (): Promise<IDBDatabase> => {
           autoIncrement: true,
           keyPath: idName,
         });
-        db.createObjectStore("cart", {
+        db.createObjectStore("cartItems", {
           autoIncrement: true,
           keyPath: idName,
         });
@@ -209,16 +209,11 @@ export const seedData = async () => {
 
   if (dbShoes.length == 0) {
     //geen schoenen aanwezig --> seed
-    console.log("geen schoenen seeden");
+    console.log(" schoenen seeden");
 
     shoes.forEach((shoe) => {
       console.log("seeding data in db");
       saveItem("shoes", shoe);
-    });
-    // seed data for cartitems
-    cartItems.forEach((cartItem) => {
-      console.log(cartItem);
-      saveItem("cart", cartItem);
     });
   }
 };

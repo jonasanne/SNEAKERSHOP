@@ -1,7 +1,9 @@
 import Shoe from "./Shoe";
 
-export default interface Cart {
+export default interface CartItem {
   idbId?: number;
-  cartItems: Array<>;
-  Total?: number;
+  id: number;
+  shoe: Shoe;
+  price?: number;
+  amount?: number;
 }
