@@ -41,6 +41,7 @@
       <form action="POST">
         <div class="flex flex-wrap flex-row mt-5">
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -50,6 +51,7 @@
           <label class="for-radiobutton-size" for="size-36">36</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -58,6 +60,7 @@
           <label class="for-radiobutton-size" for="size-37">37</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -66,6 +69,7 @@
           <label class="for-radiobutton-size" for="size-38">38</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -74,6 +78,7 @@
           <label class="for-radiobutton-size" for="size-39">39</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -82,6 +87,7 @@
           <label class="for-radiobutton-size" for="size-40">40</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -91,6 +97,7 @@
           <label class="for-radiobutton-size" for="size-41">41</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -99,6 +106,7 @@
           <label class="for-radiobutton-size" for="size-42">42</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -107,6 +115,7 @@
           <label class="for-radiobutton-size" for="size-43">43</label>
 
           <input
+            v-model="state.shoe.selectedSize"
             class="radiobutton-size"
             type="radio"
             name="size"
@@ -122,7 +131,7 @@
 
         <!-- TODO: link veranderen naar Augmented Reality pagina -->
         <router-link
-          :to="`/detail/${state.shoe.id}`"
+          :to="`/ar/${state.shoe.id}`"
           class="font-semibold text-1xl flex items-center mt-5"
         >
           <!-- svg -->
@@ -144,8 +153,14 @@
           Discover it here</router-link
         >
         <div class="mt-10 flex mb-10 justify-between lg:justify-start">
-          <select name="amount" id="amount" class="amount-dropdown lg:mr-8">
-            <option value="1">1</option>
+          <select
+            aria-required="true"
+            name="amount"
+            id="amount"
+            class="amount-dropdown lg:mr-8"
+            v-model="state.shoe.amount"
+          >
+            <option value="1" selected>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -157,10 +172,11 @@
             <option value="10">10</option>
           </select>
           <div
+            @click="addItemToCart(state.shoe.id)"
             class="uppercase c-app__button py-4 text-center bg-mint"
             style="max-width:200px; margin:0;"
           >
-            <p class="">ADD TO BASKET</p>
+            <p class="">ADD TO CART</p>
             <span class="c-app__button-underline"></span>
           </div>
         </div>
@@ -180,13 +196,10 @@ import router from "@/router";
 
 type State = {
   shoe: Shoe;
-  selectedSize: number;
 };
 
 export default defineComponent({
   setup() {
-    const shoe = undefined;
-
     const state: State = reactive({
       shoe: {
         id: 0,
@@ -197,38 +210,78 @@ export default defineComponent({
         model: "",
         iosModel: "",
         imgUrl: "",
-        amount: 0,
+        amount: "1",
         price: 0,
       },
-      selectedSize: 0,
     });
 
-    const addItemToCart = () => {
-      console.log("adding item to cart");
+    const addItemToCart = async (id: number) => {
+      console.log(`adding item to cart with id: ${id}`);
+      //amount and selectedsize toevoegen
+      if (state.shoe.amount == undefined) {
+        alert("please choose an amount.");
+        return;
+      }
+      const newShoe = {
+        id: state.shoe.id,
+        title: state.shoe.title,
+        description: state.shoe.description,
+        color: state.shoe.color,
+        //TODO FIX THIS
+        // selectedSize: state.shoe.selectedSize,
+        amount: state.shoe.amount,
+        price: state.shoe.price,
+        model: state.shoe.model,
+        iosModel: state.shoe.iosModel,
+        imgUrl: state.shoe.imgUrl,
+      };
+      console.log(newShoe);
+
+      const newArrayShoe = [];
+      newArrayShoe.push(newShoe);
+
+      const newCart = {
+        shoes: newArrayShoe,
+        date: new Date().toLocaleString(),
+      };
+      console.log(newCart);
+
+      await saveItem("cartItems", newCart)
+        .then((response) => {
+          console.log("correct");
+          alert("Item correctly added to your Cart");
+          router.push({ name: "cart" });
+        })
+        .catch((response) => {
+          console.log("error");
+          console.log(response);
+        });
     };
     const getItem = async () => {
-      console.log("getting data");
+      // console.log("getting data");
       const urlId = route.currentRoute.value.params.id.toString();
+
       await getItemById("shoes", urlId)
         .then((data) => {
-          console.log(data.title);
           if (data.title == undefined) {
             //redirect
             console.log("niet aanwezig");
 
-            router.push({name: "home"});
+            // router.push({name: "home"});
           }
           state.shoe = data;
         })
         .catch((error) => {
           console.log("error");
-          router.push("home");
+          router.push({ name: "home" });
         });
     };
 
     getItem();
+
     return {
       state,
+      addItemToCart,
     };
   },
 });

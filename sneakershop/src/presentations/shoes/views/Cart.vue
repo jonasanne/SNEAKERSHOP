@@ -258,7 +258,6 @@
 <script lang="ts">
 import Shoe from "@/models/shoe";
 import { getItems, getItemById, deleteItem, seedData } from "@/utils/idb";
-import * as jsonShoes from "@/locales/shoes.json";
 import { defineComponent, reactive } from "vue";
 
 type State = {
@@ -304,7 +303,6 @@ export default defineComponent({
       state,
       increaseAmount,
       decreaseAmount,
-      shoes: jsonShoes.shoes,
     };
   },
 });

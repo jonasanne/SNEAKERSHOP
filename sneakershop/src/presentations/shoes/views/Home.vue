@@ -62,17 +62,23 @@
       </div>
     </div>
   </div>
-  <newsletter/>
+  <newsletter />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Brands from "@/presentations/shoes/components/Brands.vue";
 import Newsletter from "@/presentations/shoes/components/Newsletter.vue";
+import { getItems, seedData } from "@/utils/idb";
+
 export default defineComponent({
+  setup() {
+    //
+    seedData();
+  },
   components: {
     Brands,
-    Newsletter
+    Newsletter,
   },
 });
 </script>

@@ -1,8 +1,9 @@
+import Cart from "@/models/Cart";
 import Shoe from "@/models/Shoe";
 
 const DB_NAME = "sneakershopdb",
-  DB_VERSION = 1,
-  idName = "id";
+  DB_VERSION = 2,
+  idName = "idbId";
 
 //STATIC DATA
 const shoes: Array<Shoe> = [
@@ -20,6 +21,28 @@ const shoes: Array<Shoe> = [
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
+  },
+];
+const cartItems: Array<Cart> = [
+  {
+    id: 1,
+    date: new Date().toLocaleDateString(),
+    shoes: [
+      {
+        id: 1,
+        title: "Nike Court Vision Low",
+        description:
+          "So you're in love with the classic look of 80s basketball, but also love the fast - paced look of today 's sport. Discover the new Nike Court Vision Low.The sleek upper and stitched overlays are inspired by the hook shots of old - school basketball, and the super soft, low - cut collar creates a streamlined look that 's comfortable all day long.",
+        color: "black",
+        price: 145,
+        model:
+          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.glb",
+        iosModel:
+          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.usdz",
+        imgUrl:
+          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
+      },
+    ],
   },
 ];
 
@@ -55,6 +78,10 @@ const getDb = async (): Promise<IDBDatabase> => {
           autoIncrement: true,
           keyPath: idName,
         });
+        db.createObjectStore("cart", {
+          autoIncrement: true,
+          keyPath: idName,
+        });
       }
     };
   });
@@ -82,8 +109,9 @@ export const getItemById = async (
 
     store.openCursor().onsuccess = (e: any): void => {
       const cursor = e.target.result;
+
       if (cursor) {
-        if (cursor.key == id) {
+        if (cursor.value.id == id) {
           item = cursor.value;
         } else {
           cursor.continue();
@@ -178,12 +206,19 @@ export const editItem = async (entity: string, item: any) => {
 export const seedData = async () => {
   // get data
   const dbShoes = await getItems("shoes");
-  console.log(dbShoes);
-  if (!dbShoes) {
+
+  if (dbShoes.length == 0) {
     //geen schoenen aanwezig --> seed
+    console.log("geen schoenen seeden");
+
     shoes.forEach((shoe) => {
       console.log("seeding data in db");
       saveItem("shoes", shoe);
+    });
+    // seed data for cartitems
+    cartItems.forEach((cartItem) => {
+      console.log(cartItem);
+      saveItem("cart", cartItem);
     });
   }
 };

@@ -4,7 +4,8 @@ import Home from "../views/Home.vue";
 const routes: Array<RouteRecordRaw> = [
   //shoe routes
   {
-    path: "/",
+    alias: "/",
+    path: "/home",
     name: "home",
     component: () =>
       import(
@@ -28,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
       ),
   },
   {
-    path: "/ar",
+    path: "/ar/:id",
     name: "ar",
     component: () =>
       import(
