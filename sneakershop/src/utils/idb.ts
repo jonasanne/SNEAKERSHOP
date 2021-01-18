@@ -37,6 +37,21 @@ const shoes: Array<Shoe> = [
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
   },
+  {
+    id: 3,
+    title: "Nike Air Zoom Pegasus 35",
+    description:
+      "The Nike Pegasus Kids Running Shoes are always a winning bet as they are the ideal choice for your child's first steps in training. Expected every year by runners and athletes around the world, the Pegasus is one of the best trainers in the world and the 35 series is certainly no exception to this rule.",
+    color: "BLACK",
+    sizes: [36, 38, 39, 43, 44],
+    price: 66.99,
+    model:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/Nike_Air_Zoom.glb",
+    iosModel:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/Nike_Air_Zoom.usdz",
+    imgUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Nike_Air_Zoom.png",
+  },
 ];
 const cartItems: Array<Cart> = [
   {

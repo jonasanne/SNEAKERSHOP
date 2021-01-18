@@ -109,6 +109,9 @@ html {
   max-width: 1500px;
   margin: auto;
 }
+.flip-image {
+  transform: scaleX(-1);
+}
 
 //-----------COMPONENTS-----------
 
