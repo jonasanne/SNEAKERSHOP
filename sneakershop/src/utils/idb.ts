@@ -22,6 +22,21 @@ const shoes: Array<Shoe> = [
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
   },
+  {
+    id: 2,
+    title: "Puma Suede Classic Eco",
+    description:
+      "With the red low sneakers suede classic eco from Puma you can go in all directions. The sneakers score high points due to the high-quality finish of the sole of durable rubber and the insole of textile. The 7-hole lacing gives the sneakers a trendy look. The outer layer of this product is made of leather.",
+    color: "RED",
+    sizes: [36, 38, 39, 43],
+    price: 79.99,
+    model:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/puma_suede.glb",
+    iosModel:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/puma_suede.usdz",
+    imgUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
+  },
 ];
 const cartItems: Array<Cart> = [
   {

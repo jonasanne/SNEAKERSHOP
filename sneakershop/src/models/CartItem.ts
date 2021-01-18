@@ -7,3 +7,5 @@ export default interface CartItem {
   price?: number;
   amount?: number;
 }
+
+

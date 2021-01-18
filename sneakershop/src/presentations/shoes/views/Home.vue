@@ -39,28 +39,28 @@
       src="@/assets/images/trapezium-left.svg"
       alt=""
     />
-    <img
-      src="@/assets/images/shoes/nike_court_vision.png"
-      alt=""
-      class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
-    />
     <div class="shoe-details">
       <p class="name text-2xl">
-        Nike <span class="font-semibold">Court</span> Vision Low
+        Puma <span class="font-semibold">Suede</span> Classic Eco
       </p>
-      <p class="color font-bold text-3xl mb-2 mt-2">BLACK</p>
+      <p class="font-bold text-3xl mb-2 mt-2 text-red-600">RED</p>
       <p class="description text-xl">
-        So you're in love with the classic look of 80s basketball, but also love
-        the fast-paced look of today's sport. Discover the new Nike Court Vision
-        Low. The sleek upper and stitched overlays are inspired by the hook
-        shots of old-school basketball, and the super soft, low-cut collar
-        creates a streamlined look that's comfortable all day long.
+        With the red low sneakers suede classic eco from Puma you can go in all
+        directions. The sneakers score high points due to the high-quality
+        finish of the sole of durable rubber and the insole of textile. The
+        7-hole lacing gives the sneakers a trendy look. The outer layer of this
+        product is made of leather.
       </p>
       <div class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 ">
-        <p>details</p>
+        <router-link to="/details/2">Details</router-link>
         <span class="c-app__button-underline"></span>
       </div>
     </div>
+    <img
+      src="@/assets/images/shoes/puma_suede.png"
+      alt=""
+      class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
+    />
   </div>
   <newsletter />
 </template>
