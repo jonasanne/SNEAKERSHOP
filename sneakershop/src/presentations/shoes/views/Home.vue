@@ -100,7 +100,7 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
     >
       <img
-        src="@/assets/images/shoes/Vans_Old_skool.png"
+        src="@/assets/images/shoes/Vans_Old_Skool.png"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
       />
