@@ -61,11 +61,11 @@ const shoes: Array<Shoe> = [
     sizes: [36, 38, 39, 43, 42, 44],
     price: 59.99,
     model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.glb",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.glb",
     iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.usdz",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.usdz",
     imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_skool.png",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_Skool.png",
   },
 ];
 const cartItems: Array<Cart> = [
