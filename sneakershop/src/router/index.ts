@@ -3,27 +3,45 @@ import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   //shoe routes
-	{
-		path: '/',
-		name: 'home',
-		component: () => import(/* webpackChunkName: "Home" */ '../presentations/shoes/views/Home.vue'),
-	},
-	{
-		path: '/cart',
-		name: 'cart',
-		component: () => import(/* webpackChunkName: "Home" */ '../presentations/shoes/views/Cart.vue'),
-	},
-	{
-		path: '/detail:id',
-		name: 'detail',
-		component: () => import(/* webpackChunkName: "Home" */ '../presentations/shoes/views/Detail.vue'),
-	},
-
+  {
+    alias: "/",
+    path: "/home",
+    name: "home",
+    component: () =>
+      import(
+        /* webpackChunkName: "Home" */ "../presentations/shoes/views/Home.vue"
+      ),
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    props : true,
+    component: () =>
+      import(
+        /* webpackChunkName: "Home" */ "../presentations/shoes/views/Cart.vue"
+      ),
+  },
+  {
+    path: "/details/:id",
+    name: "details",
+    component: () =>
+      import(
+        /* webpackChunkName: "Home" */ "../presentations/shoes/views/Details.vue"
+      ),
+  },
+  {
+    path: "/ar/:id",
+    name: "ar",
+    component: () =>
+      import(
+        /* webpackChunkName: "Home" */ "../presentations/shoes/views/Ar.vue"
+      ),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 });
 
 export default router;
