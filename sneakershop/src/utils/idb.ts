@@ -16,9 +16,9 @@ const shoes: Array<Shoe> = [
     sizes: [36, 37, 38, 39, 40, 41, 43],
     price: 145,
     model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.glb",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
     iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.usdz",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
   },
@@ -31,9 +31,9 @@ const shoes: Array<Shoe> = [
     sizes: [36, 38, 39, 43],
     price: 79.99,
     model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/puma_suede.glb",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede.glb",
     iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/puma_suede.usdz",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
   },
@@ -46,11 +46,26 @@ const shoes: Array<Shoe> = [
     sizes: [36, 38, 39, 43, 44],
     price: 66.99,
     model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/Nike_Air_Zoom.glb",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom.glb",
     iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/Nike_Air_Zoom.usdz",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Nike_Air_Zoom.png",
+  },
+  {
+    id: 4,
+    title: "Vans Old Skool Low Sneakers",
+    description:
+      "The Old Skool shoe is a true Vans classic; a low top lace-up shoe that was the first to wear the iconic side stripe. The shoe is lined, has padded cuffs for support and flexibility and the reinforced toe cap can take a beating. Of course, the waffle sole that is characteristic of Vans shoes is also included.",
+    color: "BLUE",
+    sizes: [36, 38, 39, 43, 42, 44],
+    price: 59.99,
+    model:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.glb",
+    iosModel:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.usdz",
+    imgUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_skool.png",
   },
 ];
 const cartItems: Array<Cart> = [
@@ -66,9 +81,9 @@ const cartItems: Array<Cart> = [
         color: "black",
         price: 145,
         model:
-          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.glb",
+          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
         iosModel:
-          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/model/nike_court_vision.usdz",
+          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
         imgUrl:
           "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
       },

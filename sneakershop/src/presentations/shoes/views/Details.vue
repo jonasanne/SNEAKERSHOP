@@ -191,7 +191,6 @@
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
 import { getItemById, saveItem } from "@/utils/idb";
-import route from "@/router";
 import Shoe from "@/models/shoe";
 import router from "@/router";
 
@@ -260,7 +259,7 @@ export default defineComponent({
     };
     const getItem = async () => {
       // console.log("getting data");
-      const urlId = route.currentRoute.value.params.id.toString();
+      const urlId = router.currentRoute.value.params.id.toString();
 
       await getItemById("shoes", urlId)
         .then((data) => {

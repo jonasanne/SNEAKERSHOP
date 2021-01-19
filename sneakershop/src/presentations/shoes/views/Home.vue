@@ -8,6 +8,29 @@
       alt=""
     />
     <img
+      src="@/assets/images/shoes/Nike_Air_Zoom.png"
+      alt=""
+      class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
+    />
+    <div class="shoe-details">
+      <p class="name text-2xl">
+        Nike <span class="font-semibold">Air Zoom</span> Pegasus 35
+      </p>
+      <p class="color font-bold text-3xl mb-2 mt-2">BLACK</p>
+      <p class="description text-xl">
+        The Nike Pegasus Kids Running Shoes are always a winning bet as they are
+        the ideal choice for your child's first steps in training. Expected
+        every year by runners and athletes around the world, the Pegasus is one
+        of the best trainers in the world and the 35 series is certainly no
+        exception to this rule.
+      </p>
+      <div class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 ">
+        <router-link to="/details/3">Details</router-link>
+        <span class="c-app__button-underline"></span>
+      </div>
+    </div>
+
+    <!-- <img
       src="@/assets/images/shoes/nike_court_vision.png"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
@@ -28,12 +51,12 @@
         <router-link to="/details/1">Details</router-link>
         <span class="c-app__button-underline"></span>
       </div>
-    </div>
+    </div> -->
   </div>
   <brands />
   <div class="relative mt-8">
     <div
-      class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
+      class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between  xl:flex-row xl:h-screen home-item flex-col-reverse"
     >
       <img
         class="absolute z-m-1 trapezium-left invisible xl:visible right-0"
@@ -77,26 +100,26 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
     >
       <img
-        src="@/assets/images/shoes/Nike_Air_Zoom.png"
+        src="@/assets/images/shoes/Vans_Old_skool.png"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
       />
       <div class="shoe-details">
         <p class="name text-2xl">
-          Nike <span class="font-semibold">Air Zoom</span> Pegasus 35
+          Vans <span class="font-semibold">Old Skool </span> Low Sneakers
         </p>
-        <p class="color font-bold text-3xl mb-2 mt-2">BLACK</p>
+        <p class="color text-blue font-bold text-3xl mb-2 mt-2">BLUE</p>
         <p class="description text-xl">
-          The Nike Pegasus Kids Running Shoes are always a winning bet as they
-          are the ideal choice for your child's first steps in training.
-          Expected every year by runners and athletes around the world, the
-          Pegasus is one of the best trainers in the world and the 35 series is
-          certainly no exception to this rule.
+          The Old Skool shoe is a true Vans classic; a low top lace-up shoe that
+          was the first to wear the iconic side stripe. The shoe is lined, has
+          padded cuffs for support and flexibility and the reinforced toe cap
+          can take a beating. Of course, the waffle sole that is characteristic
+          of Vans shoes is also included.
         </p>
         <div
           class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
         >
-          <router-link to="/details/3">Details</router-link>
+          <router-link to="/details/4">Details</router-link>
           <span class="c-app__button-underline"></span>
         </div>
       </div>

@@ -20,6 +20,10 @@ export default defineComponent({
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600;700&display=swap");
 #app {
   font-family: "Titillium Web", sans-serif;
+  height: 100%;
+}
+.app {
+  height: 100%;
 }
 
 $colors-neutral: (
@@ -30,10 +34,12 @@ $colors-neutral: (
   "mint-light": #53ffee,
 );
 
-html {
+html,
+body {
   transition: background 1500ms ease-out;
   background: var(--global-background-color);
   font-family: "Titillium Web", sans-serif;
+  height: 100%;
 }
 //app transitions
 .fade-enter-active,
@@ -187,6 +193,8 @@ html {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding-left: 5px;
+  // border-right: none;
+  // border: 2px solid map-get($map: $colors-neutral, $key: "darker-grey");
   &:focus {
     outline: none;
   }
@@ -310,6 +318,20 @@ html {
   width: 75px;
   padding-left: 0.5rem;
   border: 1px solid map-get($map: $colors-neutral, $key: "darker-grey");
+}
+
+//MODEL VIEWER
+.model-viewer {
+  height: 100%;
+  background-color: #fff;
+  &:focus {
+    outline: none;
+  }
+}
+
+.model-viewer-container {
+  max-height: 80%;
+  height: 100%;
 }
 
 $breakpoint-medium: 768px;

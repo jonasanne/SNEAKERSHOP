@@ -1,11 +1,80 @@
 <template>
-  <div class="p-16">
-    <h1 class="text-center">testing ar enviroment</h1>
+  <div class="h-full align">
+    <div class="m-auto  model-viewer-container">
+      <model-viewer
+        class="w-full model-viewer"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        ar-scale="auto"
+        :src="state.shoe.model"
+        :ios-src="state.shoe.iosModel"
+        alt=""
+        auto-rotate
+        camera-controls
+        loading="eager"
+      >
+      </model-viewer>
+    </div>
   </div>
+</template>
 
-  <div class="m-auto">
+<script lang="ts">
+import { defineComponent, reactive } from "vue";
+import { getItemById, saveItem } from "@/utils/idb";
+import route from "@/router";
+import Shoe from "@/models/shoe";
+import router from "@/router";
+
+type State = {
+  shoe: Shoe;
+};
+
+export default defineComponent({
+  setup() {
+    const state: State = reactive({
+      shoe: {
+        id: 0,
+        title: "",
+        description: "",
+        color: "",
+        model: "",
+        iosModel: "",
+        imgUrl: "",
+        price: 0,
+      },
+    });
+
+    const getItem = async () => {
+      // console.log("getting data");
+      const urlId = route.currentRoute.value.params.id.toString();
+
+      await getItemById("shoes", urlId)
+        .then((data) => {
+          if (data.title == undefined) {
+            //redirect
+            console.log("niet aanwezig");
+
+            // router.push({name: "home"});
+          }
+          state.shoe = data;
+        })
+        .catch((error) => {
+          console.log("error");
+          router.push({ name: "home" });
+        });
+    };
+
+    getItem();
+    return {
+      state,
+    };
+  },
+});
+</script>
+
+<!-- <div class="m-auto">
     <model-viewer
-      class="m-auto"
+      class="m-auto "
       ar
       ar-modes="webxr scene-viewer quick-look"
       ar-scale="auto"
@@ -15,11 +84,4 @@
       auto-rotate
       camera-controls
     ></model-viewer>
-  </div>
-</template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({});
-</script>
+  </div> -->

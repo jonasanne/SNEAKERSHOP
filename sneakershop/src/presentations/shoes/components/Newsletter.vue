@@ -1,6 +1,8 @@
 <template>
-  <div class="background  py-10">
-    <div class="flex justify-center items-center mb-20 lg:mb-0 flex-col lg:flex-row align">
+  <div class="background bg-darkGrey  py-10">
+    <div
+      class="flex justify-center items-center mb-20 lg:mb-0 flex-col lg:flex-row align"
+    >
       <div class="border-l-2 border-mint pl-3 mb-10 lg:mb-0">
         <p class="text-5xl font-semibold">Join With Us,</p>
         <p class="text-3xl font-semibold">For Our Newsletter.</p>
