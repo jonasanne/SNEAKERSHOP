@@ -141,7 +141,6 @@
           </div>
         </div>
       </div>
-
       <!-- delivery location -->
       <div class="mt-10 mb-2">
         <p class="font-semibold text-2xl">Delivery Location</p>
@@ -175,7 +174,7 @@
           </div>
         </div>
         <div class="link flex justify-center items-center ">
-          <svg
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14.556"
             height="25.461"
@@ -187,7 +186,7 @@
               d="M19.543,17.888,9.91,8.262a1.82,1.82,0,0,1,2.577-2.569L23.4,16.6a1.816,1.816,0,0,1,.053,2.509L12.494,30.091a1.82,1.82,0,0,1-2.577-2.569Z"
               transform="translate(-9.375 -5.161)"
             />
-          </svg>
+          </svg> -->
         </div>
       </div>
       <!-- payment method -->
@@ -220,7 +219,7 @@
           </div>
         </div>
         <div class="link flex justify-center items-center ">
-          <svg
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14.556"
             height="25.461"
@@ -232,7 +231,7 @@
               d="M19.543,17.888,9.91,8.262a1.82,1.82,0,0,1,2.577-2.569L23.4,16.6a1.816,1.816,0,0,1,.053,2.509L12.494,30.091a1.82,1.82,0,0,1-2.577-2.569Z"
               transform="translate(-9.375 -5.161)"
             />
-          </svg>
+          </svg> -->
         </div>
       </div>
     </div>
@@ -300,23 +299,56 @@ export default defineComponent({
     const state: State = reactive({
       cartItems: [],
       total: 0,
-      shipping: 0,
+      shipping: 7.99,
       subTotal: 0,
+      price: 0,
+      amount: 0,
     });
+    const calculateTotal = async () => {
+      console.log("calculating total");
+      // console.log(state.cartItems);
+      // state.cartItems.forEach((element) => {
+      // console.log("cartitem:");
+
+      // console.log(element.amount);
+      // });
+    };
 
     const getCartItems = async () => {
       await getItems("cartItems")
         .then((items) => {
-          console.log("got the cart items");
+          // console.log("got the cart items");
           state.cartItems = items;
-          console.log(items);
+          // console.log(items);
+          calculateTotal();
         })
         .catch((error) => {
           // console.log(error)
           console.log("no cart items");
         });
     };
+
     getCartItems();
+
+    const calculateTotalCartItem = async () => {
+      state.cartItems.forEach((element) => {
+        console.log(element);
+      });
+      // if (cartItem.price || cartItem.amount) {
+      //   console.log("calculating total");
+      //   let total =
+      //     (cartItem.shoe.price ? cartItem.shoe.price : 0) *
+      //     (cartItem.amount ? cartItem.amount : 0);
+
+      //   total = Math.round(total * 100) / 100;
+      //   cartItem.price = total;
+      //   calculateTotal();
+      // }
+    };
+
+    //TODO 1.  bij het begin van pagina laden alle prijzen berekenen
+    //TODO 2.  bij het wijzigen van aantal prijs herberekenen + totaal prijs
+    //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand
 
     const removeShoeFromCart = async (cartItem: CartItem) => {
       console.log("deleting item");
@@ -334,6 +366,7 @@ export default defineComponent({
 
     const increaseAmount = async (cartItem: CartItem) => {
       if (cartItem.amount != 10) cartItem.amount!++;
+      calculateTotalCartItem();
     };
 
     const decreaseAmount = async (cartItem: CartItem) => {
@@ -345,6 +378,7 @@ export default defineComponent({
       } else {
         //decreasing
         cartItem.amount!--;
+        calculateTotalCartItem();
       }
     };
 

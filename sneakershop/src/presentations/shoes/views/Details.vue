@@ -232,6 +232,7 @@ export default defineComponent({
         model: state.shoe.model,
         iosModel: state.shoe.iosModel,
         imgUrl: state.shoe.imgUrl,
+        price: state.shoe.price,
       };
       console.log(newShoe);
 

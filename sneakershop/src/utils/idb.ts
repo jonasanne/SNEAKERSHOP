@@ -68,28 +68,7 @@ const shoes: Array<Shoe> = [
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_skool.png",
   },
 ];
-const cartItems: Array<Cart> = [
-  {
-    id: 1,
-    date: new Date().toLocaleDateString(),
-    shoes: [
-      {
-        id: 1,
-        title: "Nike Court Vision Low",
-        description:
-          "So you're in love with the classic look of 80s basketball, but also love the fast - paced look of today 's sport. Discover the new Nike Court Vision Low.The sleek upper and stitched overlays are inspired by the hook shots of old - school basketball, and the super soft, low - cut collar creates a streamlined look that 's comfortable all day long.",
-        color: "black",
-        price: 145,
-        model:
-          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
-        iosModel:
-          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
-        imgUrl:
-          "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
-      },
-    ],
-  },
-];
+
 
 const getDb = async (): Promise<IDBDatabase> => {
   let DB: IDBDatabase;

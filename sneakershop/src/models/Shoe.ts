@@ -9,6 +9,7 @@ export default interface Shoe {
   iosModel: string;
   imgUrl: string;
   price: number;
+  
   amount?: string;
   selectedSize?: number;
 }
