@@ -304,15 +304,36 @@ export default defineComponent({
       price: 0,
       amount: 0,
     });
+
+    //TODO 1.  bij het begin van pagina laden alle prijzen berekenen
+    const calculateTotalCartItem = async (cartItem: CartItem) => {
+      if (cartItem.price || cartItem.amount) {
+        console.log("calculating total");
+        let total =
+          (cartItem.shoe.price ? cartItem.shoe.price : 0) *
+          (cartItem.amount ? cartItem.amount : 0);
+
+        total = Math.round(total * 100) / 100;
+        cartItem.price = total;
+      }
+    };
+
     const calculateTotal = async () => {
       console.log("calculating total");
       // console.log(state.cartItems);
-      // state.cartItems.forEach((element) => {
-      // console.log("cartitem:");
-
-      // console.log(element.amount);
-      // });
+      let subtotal = 0;
+      state.cartItems.forEach((element) => {
+        calculateTotalCartItem(element);
+        subtotal += element.price ? element.price : 0;
+        subtotal = Math.round(subtotal * 100) / 100;
+      });
+      // console.log(subtotal);
+      state.subTotal = subtotal;
+      state.total = subtotal + state.shipping;
+      state.total = Math.round(state.total * 100) / 100;
     };
+
+    //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand
 
     const getCartItems = async () => {
       await getItems("cartItems")
@@ -330,26 +351,6 @@ export default defineComponent({
 
     getCartItems();
 
-    const calculateTotalCartItem = async () => {
-      state.cartItems.forEach((element) => {
-        console.log(element);
-      });
-      // if (cartItem.price || cartItem.amount) {
-      //   console.log("calculating total");
-      //   let total =
-      //     (cartItem.shoe.price ? cartItem.shoe.price : 0) *
-      //     (cartItem.amount ? cartItem.amount : 0);
-
-      //   total = Math.round(total * 100) / 100;
-      //   cartItem.price = total;
-      //   calculateTotal();
-      // }
-    };
-
-    //TODO 1.  bij het begin van pagina laden alle prijzen berekenen
-    //TODO 2.  bij het wijzigen van aantal prijs herberekenen + totaal prijs
-    //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand
-
     const removeShoeFromCart = async (cartItem: CartItem) => {
       console.log("deleting item");
 
@@ -366,7 +367,7 @@ export default defineComponent({
 
     const increaseAmount = async (cartItem: CartItem) => {
       if (cartItem.amount != 10) cartItem.amount!++;
-      calculateTotalCartItem();
+      calculateTotal();
     };
 
     const decreaseAmount = async (cartItem: CartItem) => {
@@ -378,7 +379,7 @@ export default defineComponent({
       } else {
         //decreasing
         cartItem.amount!--;
-        calculateTotalCartItem();
+        calculateTotal();
       }
     };
 

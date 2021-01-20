@@ -190,7 +190,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
-import { getItemById, saveItem } from "@/utils/idb";
+import { getItemById, getItems, saveItem } from "@/utils/idb";
 import Shoe from "@/models/shoe";
 import router from "@/router";
 
@@ -234,7 +234,6 @@ export default defineComponent({
         imgUrl: state.shoe.imgUrl,
         price: state.shoe.price,
       };
-      console.log(newShoe);
 
       const newArrayShoe = [];
       newArrayShoe.push(newShoe);
@@ -245,18 +244,30 @@ export default defineComponent({
         amount: state.shoe.amount,
         price: state.shoe.price,
       };
-      console.log(newCartItem);
+      const cartItems = await getItems("cartItems");
+      console.log(cartItems);
 
-      await saveItem("cartItems", newCartItem)
-        .then((response) => {
-          console.log("correct");
-          alert("Item correctly added to your Cart");
-          router.push({ name: "cart" });
-        })
-        .catch((response) => {
-          console.log("error");
-          console.log(response);
-        });
+      const checkCartItemExists = cartItems.find(
+        (obj: { shoe: { id: number } }) => {
+          return obj.shoe.id === state.shoe.id;
+        }
+      );
+
+      if (!checkCartItemExists) {
+        await saveItem("cartItems", newCartItem)
+          .then((response) => {
+            console.log("correct");
+            alert("Item correctly added to your cart.");
+            router.push({ name: "cart" });
+          })
+          .catch((response) => {
+            console.log("error");
+            console.log(response);
+          });
+      } else {
+        alert("Item already in your cart.");
+        router.push({ name: "cart" });
+      }
     };
     const getItem = async () => {
       // console.log("getting data");
@@ -277,6 +288,8 @@ export default defineComponent({
           router.push({ name: "home" });
         });
     };
+
+    //TODO 1. controlleren of het item al in de cart zit
 
     getItem();
 
