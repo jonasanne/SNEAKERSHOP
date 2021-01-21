@@ -4,14 +4,15 @@
       <model-viewer
         class="w-full model-viewer"
         ar
-        ar-modes="webxr scene-viewer quick-look"
-        ar-scale="auto"
+        ar-modes="scene-viewer quick-look webxr"
+        :poster="state.shoe.posterUrl"
         :src="state.shoe.model"
         :ios-src="state.shoe.iosModel"
         alt=""
         auto-rotate
         camera-controls
         loading="eager"
+        reveal="auto"
       >
       </model-viewer>
     </div>
@@ -41,6 +42,7 @@ export default defineComponent({
         iosModel: "",
         imgUrl: "",
         price: 0,
+        posterUrl: "",
       },
     });
 

@@ -212,6 +212,7 @@ export default defineComponent({
         imgUrl: "",
         amount: "1",
         price: 0,
+        posterUrl: "",
       },
     });
 

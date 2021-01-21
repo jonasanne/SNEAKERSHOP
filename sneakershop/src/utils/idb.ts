@@ -21,6 +21,7 @@ const shoes: Array<Shoe> = [
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
+    posterUrl: "",
   },
   {
     id: 2,
@@ -36,6 +37,8 @@ const shoes: Array<Shoe> = [
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede_Poster.png",
   },
   {
     id: 3,
@@ -51,6 +54,8 @@ const shoes: Array<Shoe> = [
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Nike_Air_Zoom.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom_Poster.png",
   },
   {
     id: 4,
@@ -61,14 +66,15 @@ const shoes: Array<Shoe> = [
     sizes: [36, 38, 39, 43, 42, 44],
     price: 59.99,
     model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.glb",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.glb",
     iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_skool.usdz",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.usdz",
     imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_skool.png",
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_Skool.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool_Poster.png",
   },
 ];
-
 
 const getDb = async (): Promise<IDBDatabase> => {
   let DB: IDBDatabase;

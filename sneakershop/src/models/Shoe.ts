@@ -8,8 +8,8 @@ export default interface Shoe {
   model: string;
   iosModel: string;
   imgUrl: string;
+  posterUrl: string;
   price: number;
-  
   amount?: string;
   selectedSize?: number;
 }
