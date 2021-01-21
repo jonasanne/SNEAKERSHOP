@@ -318,11 +318,6 @@ export default defineComponent({
           (cartItem.amount ? cartItem.amount : 0);
 
         total = Math.round(total * 100) / 100;
-        if (total <= 100) {
-          state.shipping = 7.99;
-        } else {
-          state.shipping = 0;
-        }
 
         cartItem.price = total;
       }
@@ -341,7 +336,13 @@ export default defineComponent({
       state.subTotal = subtotal;
       state.total = subtotal + state.shipping;
       state.total = Math.round(state.total * 100) / 100;
+      if (state.total <= 100) {
+        state.shipping = 7.99;
+      } else {
+        state.shipping = 0;
+      }
     };
+    calculateTotal();
 
     //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand
 
