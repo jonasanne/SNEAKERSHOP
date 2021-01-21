@@ -9,19 +9,16 @@ const DB_NAME = "sneakershopdb",
 const shoes: Array<Shoe> = [
   {
     id: 1,
-    title: "Nike Court Vision Low",
+    title: "Nike Air Zoom Pegasus 36",
     description:
-      "So you're in love with the classic look of 80s basketball, but also love the fast - paced look of today 's sport. Discover the new Nike Court Vision Low.The sleek upper and stitched overlays are inspired by the hook shots of old - school basketball, and the super soft, low - cut collar creates a streamlined look that 's comfortable all day long.",
-    color: "black",
-    sizes: [36, 37, 38, 39, 40, 41, 43],
-    price: 69.99,
-    model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
-    iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
-    imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
-    posterUrl: "",
+      "The iconic Nike Air Zoom Pegasus 36 has an updated upper with more perforations and more targeted ventilation, namely in places where the foot heats up quickly. The tongue and heel counter have a thinner finish, without sacrificing comfort. The Flywire cables ensure that the shoe fits perfectly around the foot.",
+    color: "GREY",
+    sizes: [36, 39, 43, 42, 44, 45],
+    price: 89.99,
+    model: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.glb",
+    iosModel: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.usdz",
+    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Nike_Air_Zoom_36.png",
+    posterUrl: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.png",
   },
   {
     id: 2,
@@ -33,8 +30,7 @@ const shoes: Array<Shoe> = [
     price: 79.99,
     model: "https://sneakershop.jonasanne.be/models/puma_suede.glb",
     iosModel: "https://sneakershop.jonasanne.be/models/puma_suede.usdz",
-    imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
+    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/puma_suede.png",
     posterUrl: "https://sneakershop.jonasanne.be/models/puma_suede_Poster.png",
   },
   {
@@ -47,8 +43,7 @@ const shoes: Array<Shoe> = [
     price: 69.99,
     model: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.glb",
     iosModel: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.usdz",
-    imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Nike_Air_Zoom.png",
+    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Nike_Air_Zoom.png",
     posterUrl:
       "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_Poster.png",
   },
@@ -59,14 +54,29 @@ const shoes: Array<Shoe> = [
       "The Old Skool shoe is a true Vans classic; a low top lace-up shoe that was the first to wear the iconic side stripe. The shoe is lined, has padded cuffs for support and flexibility and the reinforced toe cap can take a beating. Of course, the waffle sole that is characteristic of Vans shoes is also included.",
     color: "BLUE",
     sizes: [36, 38, 39, 43, 42, 44],
-    price: 59.99,
+    price: 49.99,
     model: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.glb",
     iosModel: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.usdz",
-    imgUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_Skool.png",
+    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Vans_Old_Skool.png",
     posterUrl:
       "https://sneakershop.jonasanne.be/models/Vans_Old_Skool_Poster.png",
   },
+  // {
+  //   id: 1,
+  //   title: "Nike Court Vision Low",
+  //   description:
+  //     "So you're in love with the classic look of 80s basketball, but also love the fast - paced look of today 's sport. Discover the new Nike Court Vision Low.The sleek upper and stitched overlays are inspired by the hook shots of old - school basketball, and the super soft, low - cut collar creates a streamlined look that 's comfortable all day long.",
+  //   color: "black",
+  //   sizes: [36, 37, 38, 39, 40, 41, 43],
+  //   price: 69.99,
+  //   model:
+  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
+  //   iosModel:
+  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
+  //   imgUrl:
+  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
+  //   posterUrl: "",
+  // },
 ];
 
 const getDb = async (): Promise<IDBDatabase> => {

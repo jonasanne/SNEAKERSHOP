@@ -342,6 +342,7 @@ export default defineComponent({
         state.shipping = 0;
       }
     };
+
     calculateTotal();
 
     //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand

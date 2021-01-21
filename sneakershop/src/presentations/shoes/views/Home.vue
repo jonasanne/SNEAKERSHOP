@@ -65,25 +65,25 @@
       />
       <div class="shoe-details">
         <p class="name text-2xl">
-          Puma <span class="font-semibold">Suede</span> Classic Eco
+          Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
         </p>
-        <p class="font-bold text-3xl mb-2 mt-2  text-red">RED</p>
+        <p class="font-bold text-3xl mb-2 mt-2  text-grey">RED</p>
         <p class="description text-xl">
-          With the red low sneakers suede classic eco from Puma you can go in
-          all directions. The sneakers score high points due to the high-quality
-          finish of the sole of durable rubber and the insole of textile. The
-          7-hole lacing gives the sneakers a trendy look. The outer layer of
-          this product is made of leather.
+          The iconic Nike Air Zoom Pegasus 36 has an updated upper with more
+          perforations and more targeted ventilation, namely in places where the
+          foot heats up quickly. The tongue and heel counter have a thinner
+          finish, without sacrificing comfort. The Flywire cables ensure that
+          the shoe fits perfectly around the foot.
         </p>
         <div
           class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
         >
-          <router-link to="/details/2">Details</router-link>
+          <router-link to="/details/1">Details</router-link>
           <span class="c-app__button-underline"></span>
         </div>
       </div>
       <img
-        src="@/assets/images/shoes/puma_suede.png"
+        src="@/assets/images/shoes/Nike_Air_Zoom_36.png"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
       />
