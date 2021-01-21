@@ -56,7 +56,7 @@
             type="radio"
             name="size"
             id="size-37"
-            checked
+            checked="true"
           />
           <label class="for-radiobutton-size" for="size-37">37</label>
 

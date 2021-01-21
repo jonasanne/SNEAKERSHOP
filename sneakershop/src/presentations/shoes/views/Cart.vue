@@ -252,7 +252,9 @@
         </div>
         <div class="flex justify-between lg:px-10 px-6">
           <!-- shipping -->
-          <p class="lg:text-xl font">Shipping</p>
+          <p class="lg:text-xl font">
+            Shipping
+          </p>
           <p class="lg:text-xl font-semibold">€{{ state.shipping }}</p>
         </div>
       </div>
@@ -264,6 +266,8 @@
           <p class="lg:text-3xl">Total</p>
           <p class="lg:text-3xl font-semibold">€{{ state.total }}</p>
         </div>
+        <p class="text-sm font-semibold mt-2">Free shipping above €100</p>
+
         <!-- buton -->
         <div
           class="uppercase c-app__button py-4 text-center bg-mint mt-10 mb-10"
@@ -299,7 +303,7 @@ export default defineComponent({
     const state: State = reactive({
       cartItems: [],
       total: 0,
-      shipping: 7.99,
+      shipping: 0,
       subTotal: 0,
       price: 0,
       amount: 0,
@@ -314,6 +318,12 @@ export default defineComponent({
           (cartItem.amount ? cartItem.amount : 0);
 
         total = Math.round(total * 100) / 100;
+        if (total <= 100) {
+          state.shipping = 7.99;
+        } else {
+          state.shipping = 0;
+        }
+
         cartItem.price = total;
       }
     };

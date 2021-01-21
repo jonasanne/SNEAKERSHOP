@@ -14,7 +14,7 @@ const shoes: Array<Shoe> = [
       "So you're in love with the classic look of 80s basketball, but also love the fast - paced look of today 's sport. Discover the new Nike Court Vision Low.The sleek upper and stitched overlays are inspired by the hook shots of old - school basketball, and the super soft, low - cut collar creates a streamlined look that 's comfortable all day long.",
     color: "black",
     sizes: [36, 37, 38, 39, 40, 41, 43],
-    price: 145,
+    price: 69.99,
     model:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
     iosModel:
@@ -31,14 +31,11 @@ const shoes: Array<Shoe> = [
     color: "RED",
     sizes: [36, 38, 39, 43],
     price: 79.99,
-    model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede.glb",
-    iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede.usdz",
+    model: "https://sneakershop.jonasanne.be/models/puma_suede.glb",
+    iosModel: "https://sneakershop.jonasanne.be/models/puma_suede.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/puma_suede.png",
-    posterUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/puma_suede_Poster.png",
+    posterUrl: "https://sneakershop.jonasanne.be/models/puma_suede_Poster.png",
   },
   {
     id: 3,
@@ -47,15 +44,13 @@ const shoes: Array<Shoe> = [
       "The Nike Pegasus Kids Running Shoes are always a winning bet as they are the ideal choice for your child's first steps in training. Expected every year by runners and athletes around the world, the Pegasus is one of the best trainers in the world and the 35 series is certainly no exception to this rule.",
     color: "BLACK",
     sizes: [36, 38, 39, 43, 44],
-    price: 66.99,
-    model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom.glb",
-    iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom.usdz",
+    price: 69.99,
+    model: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.glb",
+    iosModel: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Nike_Air_Zoom.png",
     posterUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Nike_Air_Zoom_Poster.png",
+      "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_Poster.png",
   },
   {
     id: 4,
@@ -65,14 +60,12 @@ const shoes: Array<Shoe> = [
     color: "BLUE",
     sizes: [36, 38, 39, 43, 42, 44],
     price: 59.99,
-    model:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.glb",
-    iosModel:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool.usdz",
+    model: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.glb",
+    iosModel: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.usdz",
     imgUrl:
       "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/Vans_Old_Skool.png",
     posterUrl:
-      "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/Vans_Old_Skool_Poster.png",
+      "https://sneakershop.jonasanne.be/models/Vans_Old_Skool_Poster.png",
   },
 ];
 
