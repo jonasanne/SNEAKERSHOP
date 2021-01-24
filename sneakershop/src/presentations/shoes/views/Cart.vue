@@ -94,7 +94,29 @@
                 </button>
                 <!-- amount count -->
                 <p class="lg:text-2xl ">{{ cartItem.amount }}</p>
+
                 <button
+                  disabled
+                  v-if="cartItem.amount == 10"
+                  @click="increaseAmount(cartItem)"
+                  class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
+                >
+                  <svg
+                    class="svg-button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 25.999 26"
+                  >
+                    <path
+                      id="Union_3"
+                      data-name="Union 3"
+                      d="M-2461-1261.858v-7h-7a3,3,0,0,1-3-3,3,3,0,0,1,3-3h7v-7a3,3,0,0,1,3-3,3,3,0,0,1,3,3v7h7a3,3,0,0,1,3,3,3,3,0,0,1-3,3h-7v7a3,3,0,0,1-3,3A3,3,0,0,1-2461-1261.858Z"
+                      transform="translate(2471 1284.858)"
+                      fill="#dcdcdc"
+                    />
+                  </svg>
+                </button>
+                <button
+                  v-if="cartItem.amount < 10"
                   @click="increaseAmount(cartItem)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
                 >
@@ -312,7 +334,6 @@ export default defineComponent({
     //TODO 1.  bij het begin van pagina laden alle prijzen berekenen
     const calculateTotalCartItem = async (cartItem: CartItem) => {
       if (cartItem.price || cartItem.amount) {
-        console.log("calculating total");
         let total =
           (cartItem.shoe.price ? cartItem.shoe.price : 0) *
           (cartItem.amount ? cartItem.amount : 0);
@@ -324,28 +345,26 @@ export default defineComponent({
     };
 
     const calculateTotal = async () => {
-      console.log("calculating total");
-      // console.log(state.cartItems);
       let subtotal = 0;
       state.cartItems.forEach((element) => {
         calculateTotalCartItem(element);
         subtotal += element.price ? element.price : 0;
         subtotal = Math.round(subtotal * 100) / 100;
       });
-      // console.log(subtotal);
+      // controleren of er items aanwezig zijn
       state.subTotal = subtotal;
+
+      //controleren voor free shipping
+      if (state.subTotal == 0) {
+        state.shipping = 0;
+      } else if (state.subTotal > 0 && state.subTotal < 100)
+        state.shipping = 7.99;
+      else if (state.subTotal > 100) state.shipping = 0;
+
       state.total = subtotal + state.shipping;
       state.total = Math.round(state.total * 100) / 100;
-      if (state.total <= 100) {
-        state.shipping = 7.99;
-      } else {
-        state.shipping = 0;
-      }
     };
-
     calculateTotal();
-
-    //TODO 3.  controle dat er niet 2 keer hetzelfde artikel wordt ingestoken in de winkelmand
 
     const getCartItems = async () => {
       await getItems("cartItems")
@@ -356,8 +375,7 @@ export default defineComponent({
           calculateTotal();
         })
         .catch((error) => {
-          // console.log(error)
-          console.log("no cart items");
+          console.log(error);
         });
     };
 
@@ -383,8 +401,6 @@ export default defineComponent({
     };
 
     const decreaseAmount = async (cartItem: CartItem) => {
-      console.log(cartItem.amount);
-
       //controleren als amount naar 0 gaat
       if (cartItem.amount == 0) {
         removeShoeFromCart(cartItem);

@@ -67,7 +67,7 @@
         <p class="name text-2xl">
           Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
         </p>
-        <p class="font-bold text-3xl mb-2 mt-2  text-grey">RED</p>
+        <p class="font-bold text-3xl mb-2 mt-2  text-grey">GREY</p>
         <p class="description text-xl">
           The iconic Nike Air Zoom Pegasus 36 has an updated upper with more
           perforations and more targeted ventilation, namely in places where the

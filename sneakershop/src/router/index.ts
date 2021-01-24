@@ -1,3 +1,4 @@
+import { Vue } from "vue-class-component";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
@@ -11,6 +12,7 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "Home" */ "../presentations/shoes/views/Home.vue"
       ),
   },
+
   {
     path: "/cart",
     name: "cart",

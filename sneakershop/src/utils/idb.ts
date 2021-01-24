@@ -15,10 +15,10 @@ const shoes: Array<Shoe> = [
     color: "GREY",
     sizes: [36, 39, 43, 42, 44, 45],
     price: 89.99,
-    model: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.glb",
-    iosModel: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.usdz",
-    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Nike_Air_Zoom_36.png",
-    posterUrl: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_36.png",
+    model: "https://jonasanne.be/models/Nike_Air_Zoom_36.glb",
+    iosModel: "https://jonasanne.be/models/Nike_Air_Zoom_36.usdz",
+    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom_36.png",
+    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_36_poster.png",
   },
   {
     id: 2,
@@ -28,10 +28,10 @@ const shoes: Array<Shoe> = [
     color: "RED",
     sizes: [36, 38, 39, 43],
     price: 79.99,
-    model: "https://sneakershop.jonasanne.be/models/puma_suede.glb",
-    iosModel: "https://sneakershop.jonasanne.be/models/puma_suede.usdz",
-    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/puma_suede.png",
-    posterUrl: "https://sneakershop.jonasanne.be/models/puma_suede_Poster.png",
+    model: "https://jonasanne.be/models/puma_suede.glb",
+    iosModel: "https://jonasanne.be/models/puma_suede.usdz",
+    imgUrl: "https://jonasanne.be/img/shoes/puma_suede.png",
+    posterUrl: "https://jonasanne.be/models/puma_suede_Poster.png",
   },
   {
     id: 3,
@@ -41,11 +41,10 @@ const shoes: Array<Shoe> = [
     color: "BLACK",
     sizes: [36, 38, 39, 43, 44],
     price: 69.99,
-    model: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.glb",
-    iosModel: "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom.usdz",
-    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Nike_Air_Zoom.png",
-    posterUrl:
-      "https://sneakershop.jonasanne.be/models/Nike_Air_Zoom_Poster.png",
+    model: "https://jonasanne.be/models/Nike_Air_Zoom.glb",
+    iosModel: "https://jonasanne.be/models/Nike_Air_Zoom.usdz",
+    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom.png",
+    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_Poster.png",
   },
   {
     id: 4,
@@ -55,11 +54,10 @@ const shoes: Array<Shoe> = [
     color: "BLUE",
     sizes: [36, 38, 39, 43, 42, 44],
     price: 49.99,
-    model: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.glb",
-    iosModel: "https://sneakershop.jonasanne.be/models/Vans_Old_Skool.usdz",
-    imgUrl: "https://sneakershop.jonasanne.be/img/shoes/Vans_Old_Skool.png",
-    posterUrl:
-      "https://sneakershop.jonasanne.be/models/Vans_Old_Skool_Poster.png",
+    model: "https://jonasanne.be/models/Vans_Old_Skool.glb",
+    iosModel: "https://jonasanne.be/models/Vans_Old_Skool.usdz",
+    imgUrl: "https://jonasanne.be/img/shoes/Vans_Old_Skool.png",
+    posterUrl: "https://jonasanne.be/models/Vans_Old_Skool_Poster.png",
   },
   // {
   //   id: 1,
@@ -70,11 +68,11 @@ const shoes: Array<Shoe> = [
   //   sizes: [36, 37, 38, 39, 40, 41, 43],
   //   price: 69.99,
   //   model:
-  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
+  //     "httpss://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.glb",
   //   iosModel:
-  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
+  //     "httpss://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/models/nike_court_vision.usdz",
   //   imgUrl:
-  //     "https://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
+  //     "httpss://raw.githubusercontent.com/jonasanne/SNEAKERSHOP/master/sneakershop/src/assets/images/shoes/nike_court_vision.png",
   //   posterUrl: "",
   // },
 ];
