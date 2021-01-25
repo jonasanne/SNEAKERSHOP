@@ -10,8 +10,6 @@
         alt=""
         auto-rotate
         camera-controls
-        loading="eager"
-        reveal="auto"
       >
       </model-viewer>
     </div>

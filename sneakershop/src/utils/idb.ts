@@ -17,8 +17,8 @@ const shoes: Array<Shoe> = [
     price: 89.99,
     model: "https://jonasanne.be/models/Nike_Air_Zoom_36.glb",
     iosModel: "https://jonasanne.be/models/Nike_Air_Zoom_36.usdz",
-    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom_36.png",
-    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_36_poster.png",
+    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom_36.webp",
+    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_36_poster.webp",
   },
   {
     id: 2,
@@ -30,8 +30,8 @@ const shoes: Array<Shoe> = [
     price: 79.99,
     model: "https://jonasanne.be/models/puma_suede.glb",
     iosModel: "https://jonasanne.be/models/puma_suede.usdz",
-    imgUrl: "https://jonasanne.be/img/shoes/puma_suede.png",
-    posterUrl: "https://jonasanne.be/models/puma_suede_Poster.png",
+    imgUrl: "https://jonasanne.be/img/shoes/puma_suede.webp",
+    posterUrl: "https://jonasanne.be/models/puma_suede_Poster.webp",
   },
   {
     id: 3,
@@ -43,8 +43,8 @@ const shoes: Array<Shoe> = [
     price: 69.99,
     model: "https://jonasanne.be/models/Nike_Air_Zoom.glb",
     iosModel: "https://jonasanne.be/models/Nike_Air_Zoom.usdz",
-    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom.png",
-    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_Poster.png",
+    imgUrl: "https://jonasanne.be/img/shoes/Nike_Air_Zoom.webp",
+    posterUrl: "https://jonasanne.be/models/Nike_Air_Zoom_Poster.webp",
   },
   {
     id: 4,
@@ -56,8 +56,8 @@ const shoes: Array<Shoe> = [
     price: 49.99,
     model: "https://jonasanne.be/models/Vans_Old_Skool.glb",
     iosModel: "https://jonasanne.be/models/Vans_Old_Skool.usdz",
-    imgUrl: "https://jonasanne.be/img/shoes/Vans_Old_Skool.png",
-    posterUrl: "https://jonasanne.be/models/Vans_Old_Skool_Poster.png",
+    imgUrl: "https://jonasanne.be/img/shoes/Vans_Old_Skool.webp",
+    posterUrl: "https://jonasanne.be/models/Vans_Old_Skool_Poster.webp",
   },
   // {
   //   id: 1,

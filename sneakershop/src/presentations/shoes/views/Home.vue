@@ -10,7 +10,7 @@
     />
     <img
       data-aos="zoom-in"
-      src="@/assets/images/shoes/Nike_Air_Zoom.png"
+      src="@/assets/images/shoes/Nike_Air_Zoom.webp"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
@@ -33,7 +33,7 @@
     </div>
 
     <!-- <img
-      src="@/assets/images/shoes/nike_court_vision.png"
+      src="@/assets/images/shoes/nike_court_vision.webp"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
@@ -91,7 +91,7 @@
           </div>
         </div>
         <img
-          src="@/assets/images/shoes/Nike_Air_Zoom_36.png"
+          src="@/assets/images/shoes/Nike_Air_Zoom_36.webp"
           alt="nike air zoom"
           class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
         />
@@ -111,7 +111,7 @@
     >
       <img
         data-aos="fade-up"
-        src="@/assets/images/shoes/Vans_Old_Skool.png"
+        src="@/assets/images/shoes/Vans_Old_Skool.webp"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
       />
