@@ -1,5 +1,5 @@
+import { Vue } from "vue-class-component";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   //shoe routes
@@ -12,10 +12,11 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "Home" */ "../presentations/shoes/views/Home.vue"
       ),
   },
+
   {
     path: "/cart",
     name: "cart",
-    props : true,
+    props: true,
     component: () =>
       import(
         /* webpackChunkName: "Home" */ "../presentations/shoes/views/Cart.vue"
@@ -37,9 +38,18 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "Home" */ "../presentations/shoes/views/Ar.vue"
       ),
   },
+  {
+    path: "/*",
+    name: "NotFound",
+    component: () =>
+      import(
+        /* webpackChunkName: "NotFound" */ "../presentations/shared/views/NotFound.vue"
+      ),
+  },
 ];
 
 const router = createRouter({
+  
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });

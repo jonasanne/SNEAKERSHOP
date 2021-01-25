@@ -4,14 +4,12 @@
       <model-viewer
         class="w-full model-viewer"
         ar
-        ar-modes="webxr scene-viewer quick-look"
-        ar-scale="auto"
+        :poster="state.shoe.posterUrl"
         :src="state.shoe.model"
         :ios-src="state.shoe.iosModel"
         alt=""
         auto-rotate
         camera-controls
-        loading="eager"
       >
       </model-viewer>
     </div>
@@ -41,6 +39,7 @@ export default defineComponent({
         iosModel: "",
         imgUrl: "",
         price: 0,
+        posterUrl: "",
       },
     });
 
@@ -52,9 +51,9 @@ export default defineComponent({
         .then((data) => {
           if (data.title == undefined) {
             //redirect
-            console.log("niet aanwezig");
+            // console.log("niet aanwezig");
 
-            // router.push({name: "home"});
+            router.push({ name: "home" });
           }
           state.shoe = data;
         })

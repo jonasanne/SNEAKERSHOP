@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col lg:flex-row justify-between align">
     <!-- left -->
-    <div class="pt-8 lg:w-3/4  px-6  lg:pr-14 ">
+    <div           data-aos="fade-right"
+ class="pt-8 lg:w-3/4  px-6  lg:pr-14">
       <div>
         <h1 class=" font-semibold text-3xl">My Cart</h1>
         <p>
@@ -94,7 +95,29 @@
                 </button>
                 <!-- amount count -->
                 <p class="lg:text-2xl ">{{ cartItem.amount }}</p>
+
                 <button
+                  disabled
+                  v-if="cartItem.amount == 10"
+                  @click="increaseAmount(cartItem)"
+                  class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
+                >
+                  <svg
+                    class="svg-button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 25.999 26"
+                  >
+                    <path
+                      id="Union_3"
+                      data-name="Union 3"
+                      d="M-2461-1261.858v-7h-7a3,3,0,0,1-3-3,3,3,0,0,1,3-3h7v-7a3,3,0,0,1,3-3,3,3,0,0,1,3,3v7h7a3,3,0,0,1,3,3,3,3,0,0,1-3,3h-7v7a3,3,0,0,1-3,3A3,3,0,0,1-2461-1261.858Z"
+                      transform="translate(2471 1284.858)"
+                      fill="#dcdcdc"
+                    />
+                  </svg>
+                </button>
+                <button
+                  v-if="cartItem.amount < 10"
                   @click="increaseAmount(cartItem)"
                   class="rounded-full bg-darkGrey c-app-cartitem__button ml-3"
                 >
@@ -141,7 +164,6 @@
           </div>
         </div>
       </div>
-
       <!-- delivery location -->
       <div class="mt-10 mb-2">
         <p class="font-semibold text-2xl">Delivery Location</p>
@@ -175,7 +197,7 @@
           </div>
         </div>
         <div class="link flex justify-center items-center ">
-          <svg
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14.556"
             height="25.461"
@@ -187,7 +209,7 @@
               d="M19.543,17.888,9.91,8.262a1.82,1.82,0,0,1,2.577-2.569L23.4,16.6a1.816,1.816,0,0,1,.053,2.509L12.494,30.091a1.82,1.82,0,0,1-2.577-2.569Z"
               transform="translate(-9.375 -5.161)"
             />
-          </svg>
+          </svg> -->
         </div>
       </div>
       <!-- payment method -->
@@ -220,7 +242,7 @@
           </div>
         </div>
         <div class="link flex justify-center items-center ">
-          <svg
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14.556"
             height="25.461"
@@ -232,13 +254,16 @@
               d="M19.543,17.888,9.91,8.262a1.82,1.82,0,0,1,2.577-2.569L23.4,16.6a1.816,1.816,0,0,1,.053,2.509L12.494,30.091a1.82,1.82,0,0,1-2.577-2.569Z"
               transform="translate(-9.375 -5.161)"
             />
-          </svg>
+          </svg> -->
         </div>
       </div>
     </div>
 
     <!-- right -->
-    <div class="bg-darkGrey pt-8 lg:w-1/4  lg:h-screen mt-12  lg:mt-0">
+    <div
+      data-aos="fade-left"
+      class="bg-darkGrey pt-8 lg:w-1/4  lg:h-screen mt-12  lg:mt-0"
+    >
       <!-- right -->
       <div>
         <!-- top -->
@@ -253,7 +278,9 @@
         </div>
         <div class="flex justify-between lg:px-10 px-6">
           <!-- shipping -->
-          <p class="lg:text-xl font">Shipping</p>
+          <p class="lg:text-xl font">
+            Shipping
+          </p>
           <p class="lg:text-xl font-semibold">€{{ state.shipping }}</p>
         </div>
       </div>
@@ -265,6 +292,8 @@
           <p class="lg:text-3xl">Total</p>
           <p class="lg:text-3xl font-semibold">€{{ state.total }}</p>
         </div>
+        <p class="text-sm font-semibold mt-2">Free shipping above €100</p>
+
         <!-- buton -->
         <div
           class="uppercase c-app__button py-4 text-center bg-mint mt-10 mb-10"
@@ -283,10 +312,11 @@
 
 <script lang="ts">
 import CartItem from "@/models/CartItem";
-import Shoe from "@/models/shoe";
 import router from "@/router";
 import { getItems, getItemById, deleteItem, seedData } from "@/utils/idb";
 import { defineComponent, reactive } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type State = {
   cartItems: Array<CartItem>;
@@ -297,34 +327,74 @@ type State = {
 
 export default defineComponent({
   setup() {
+    AOS.init();
+
     const state: State = reactive({
       cartItems: [],
       total: 0,
       shipping: 0,
       subTotal: 0,
+      price: 0,
+      amount: 0,
     });
+
+    //TODO 1.  bij het begin van pagina laden alle prijzen berekenen
+    const calculateTotalCartItem = async (cartItem: CartItem) => {
+      if (cartItem.price || cartItem.amount) {
+        let total =
+          (cartItem.shoe.price ? cartItem.shoe.price : 0) *
+          (cartItem.amount ? cartItem.amount : 0);
+
+        total = Math.round(total * 100) / 100;
+
+        cartItem.price = total;
+      }
+    };
+
+    const calculateTotal = async () => {
+      let subtotal = 0;
+      state.cartItems.forEach((element) => {
+        calculateTotalCartItem(element);
+        subtotal += element.price ? element.price : 0;
+        subtotal = Math.round(subtotal * 100) / 100;
+      });
+      // controleren of er items aanwezig zijn
+      state.subTotal = subtotal;
+
+      //controleren voor free shipping
+      if (state.subTotal == 0) {
+        state.shipping = 0;
+      } else if (state.subTotal > 0 && state.subTotal < 100)
+        state.shipping = 7.99;
+      else if (state.subTotal > 100) state.shipping = 0;
+
+      state.total = subtotal + state.shipping;
+      state.total = Math.round(state.total * 100) / 100;
+    };
+    calculateTotal();
 
     const getCartItems = async () => {
       await getItems("cartItems")
         .then((items) => {
-          console.log("got the cart items");
+          // console.log("got the cart items");
           state.cartItems = items;
-          console.log(items);
+          // console.log(items);
+          calculateTotal();
         })
         .catch((error) => {
-          // console.log(error)
-          console.log("no cart items");
+          console.log(error);
         });
     };
+
     getCartItems();
 
     const removeShoeFromCart = async (cartItem: CartItem) => {
-      console.log("deleting item");
+      // console.log("deleting item");
 
       await deleteItem("cartItems", cartItem)
         .then((response: any) => {
           // reload page
-          console.log("reload");
+          // console.log("reload");
           location.reload();
         })
         .catch((error: any) => {
@@ -334,17 +404,17 @@ export default defineComponent({
 
     const increaseAmount = async (cartItem: CartItem) => {
       if (cartItem.amount != 10) cartItem.amount!++;
+      calculateTotal();
     };
 
     const decreaseAmount = async (cartItem: CartItem) => {
-      console.log(cartItem.amount);
-
       //controleren als amount naar 0 gaat
       if (cartItem.amount == 0) {
         removeShoeFromCart(cartItem);
       } else {
         //decreasing
         cartItem.amount!--;
+        calculateTotal();
       }
     };
 

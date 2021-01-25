@@ -3,16 +3,18 @@
     class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
   >
     <img
+      data-aos="fade-left"
       class="absolute inset-0 z-m-1 trapezium-left invisible xl:visible"
       src="@/assets/images/trapezium-left.svg"
       alt=""
     />
     <img
-      src="@/assets/images/shoes/Nike_Air_Zoom.png"
+      data-aos="zoom-in"
+      src="@/assets/images/shoes/Nike_Air_Zoom.webp"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
-    <div class="shoe-details">
+    <div class="shoe-details" data-aos="zoom-in">
       <p class="name text-2xl">
         Nike <span class="font-semibold">Air Zoom</span> Pegasus 35
       </p>
@@ -31,7 +33,7 @@
     </div>
 
     <!-- <img
-      src="@/assets/images/shoes/nike_court_vision.png"
+      src="@/assets/images/shoes/nike_court_vision.webp"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
@@ -59,39 +61,47 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between  xl:flex-row xl:h-screen home-item flex-col-reverse"
     >
       <img
+        data-aos="fade-right"
         class="absolute z-m-1 trapezium-left invisible xl:visible right-0"
         src="@/assets/images/trapezium_right.svg"
         alt=""
       />
-      <div class="shoe-details">
-        <p class="name text-2xl">
-          Puma <span class="font-semibold">Suede</span> Classic Eco
-        </p>
-        <p class="font-bold text-3xl mb-2 mt-2  text-red">RED</p>
-        <p class="description text-xl">
-          With the red low sneakers suede classic eco from Puma you can go in
-          all directions. The sneakers score high points due to the high-quality
-          finish of the sole of durable rubber and the insole of textile. The
-          7-hole lacing gives the sneakers a trendy look. The outer layer of
-          this product is made of leather.
-        </p>
-        <div
-          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
-        >
-          <router-link to="/details/2">Details</router-link>
-          <span class="c-app__button-underline"></span>
+
+      <div
+        data-aos="fade-up"
+        class="d-h align   flex mb-16 xl:mb-0 home-item  items-center xl:justify-between  xl:flex-row xl:h-screen home-item flex-col-reverse w-full"
+      >
+        <div class="shoe-details" data-aos="fade-up">
+          <p class="name text-2xl">
+            Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
+          </p>
+          <p class="font-bold text-3xl mb-2 mt-2  text-grey">GREY</p>
+          <p class="description text-xl">
+            The iconic Nike Air Zoom Pegasus 36 has an updated upper with more
+            perforations and more targeted ventilation, namely in places where
+            the foot heats up quickly. The tongue and heel counter have a
+            thinner finish, without sacrificing comfort. The Flywire cables
+            ensure that the shoe fits perfectly around the foot.
+          </p>
+          <div
+            class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
+          >
+            <router-link to="/details/1">Details</router-link>
+            <span class="c-app__button-underline"></span>
+          </div>
         </div>
+        <img
+          src="@/assets/images/shoes/Nike_Air_Zoom_36.webp"
+          alt="nike air zoom"
+          class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
+        />
       </div>
-      <img
-        src="@/assets/images/shoes/puma_suede.png"
-        alt=""
-        class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
-      />
     </div>
   </div>
   <newsletter />
   <div class="relative">
     <img
+      data-aos="fade-left"
       class="absolute inset-0 z-m-1 trapezium-left invisible xl:visible"
       src="@/assets/images/trapezium-left.svg"
       alt=""
@@ -100,11 +110,12 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
     >
       <img
-        src="@/assets/images/shoes/Vans_Old_skool.png"
+        data-aos="fade-up"
+        src="@/assets/images/shoes/Vans_Old_Skool.webp"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
       />
-      <div class="shoe-details">
+      <div class="shoe-details" data-aos="fade-up">
         <p class="name text-2xl">
           Vans <span class="font-semibold">Old Skool </span> Low Sneakers
         </p>
@@ -117,7 +128,7 @@
           of Vans shoes is also included.
         </p>
         <div
-          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
+          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4  mb-20"
         >
           <router-link to="/details/4">Details</router-link>
           <span class="c-app__button-underline"></span>
@@ -132,11 +143,14 @@ import { defineComponent } from "vue";
 import Brands from "@/presentations/shoes/components/Brands.vue";
 import Newsletter from "@/presentations/shoes/components/Newsletter.vue";
 import { getItems, seedData } from "@/utils/idb";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default defineComponent({
   setup() {
     //
     seedData();
+    AOS.init();
   },
   components: {
     Brands,

@@ -14,7 +14,7 @@
       >
         <path id="greyBg" d="M0,0H849.8l.2,950H0Z" fill="#fbfbfb" />
       </svg>
-      <div>
+      <div data-aos="fade-up">
         <p class="text-3xl">
           {{ state.shoe.title }}
         </p>
@@ -27,7 +27,7 @@
         />
       </div>
     </div>
-    <div class="w-full detail-item__description">
+    <div class="w-full detail-item__description" data-aos="fade-up">
       <!-- right -->
       <p class="font-semibold text-2xl mb-2 mt-8 ">Description</p>
       <hr class="underline-grey " />
@@ -38,7 +38,7 @@
       <p class="font-semibold text-2xl mb-2 mt-8 ">Select size</p>
       <hr class="underline-grey" />
 
-      <form action="POST">
+      <form>
         <div class="flex flex-wrap flex-row mt-5">
           <input
             v-model="state.shoe.selectedSize"
@@ -56,7 +56,6 @@
             type="radio"
             name="size"
             id="size-37"
-            checked
           />
           <label class="for-radiobutton-size" for="size-37">37</label>
 
@@ -190,9 +189,11 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
-import { getItemById, saveItem } from "@/utils/idb";
+import { getItemById, getItems, saveItem } from "@/utils/idb";
 import Shoe from "@/models/shoe";
 import router from "@/router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type State = {
   shoe: Shoe;
@@ -200,6 +201,7 @@ type State = {
 
 export default defineComponent({
   setup() {
+    AOS.init();
     const state: State = reactive({
       shoe: {
         id: 0,
@@ -212,11 +214,12 @@ export default defineComponent({
         imgUrl: "",
         amount: "1",
         price: 0,
+        posterUrl: "",
       },
     });
 
     const addItemToCart = async (id: number) => {
-      console.log(`adding item to cart with id: ${id}`);
+      // console.log(`adding item to cart with id: ${id}`);
       //amount and selectedsize toevoegen
       if (state.shoe.amount == undefined) {
         alert("please choose an amount.");
@@ -232,8 +235,8 @@ export default defineComponent({
         model: state.shoe.model,
         iosModel: state.shoe.iosModel,
         imgUrl: state.shoe.imgUrl,
+        price: state.shoe.price,
       };
-      console.log(newShoe);
 
       const newArrayShoe = [];
       newArrayShoe.push(newShoe);
@@ -244,18 +247,30 @@ export default defineComponent({
         amount: state.shoe.amount,
         price: state.shoe.price,
       };
-      console.log(newCartItem);
+      const cartItems = await getItems("cartItems");
+      // console.log(cartItems);
 
-      await saveItem("cartItems", newCartItem)
-        .then((response) => {
-          console.log("correct");
-          alert("Item correctly added to your Cart");
-          router.push({ name: "cart" });
-        })
-        .catch((response) => {
-          console.log("error");
-          console.log(response);
-        });
+      const checkCartItemExists = cartItems.find(
+        (obj: { shoe: { id: number } }) => {
+          return obj.shoe.id === state.shoe.id;
+        }
+      );
+
+      if (!checkCartItemExists) {
+        await saveItem("cartItems", newCartItem)
+          .then((response) => {
+            // console.log("correct");
+            alert("Item correctly added to your cart.");
+            router.push({ name: "cart" });
+          })
+          .catch((response) => {
+            console.log("error");
+            console.log(response);
+          });
+      } else {
+        alert("Item already in your cart.");
+        router.push({ name: "cart" });
+      }
     };
     const getItem = async () => {
       // console.log("getting data");
@@ -265,9 +280,9 @@ export default defineComponent({
         .then((data) => {
           if (data.title == undefined) {
             //redirect
-            console.log("niet aanwezig");
+            // console.log("niet aanwezig");
 
-            // router.push({name: "home"});
+            router.push({ name: "home" });
           }
           state.shoe = data;
         })
@@ -276,6 +291,8 @@ export default defineComponent({
           router.push({ name: "home" });
         });
     };
+
+    //TODO 1. controlleren of het item al in de cart zit
 
     getItem();
 
