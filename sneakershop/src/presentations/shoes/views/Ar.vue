@@ -4,7 +4,6 @@
       <model-viewer
         class="w-full model-viewer"
         ar
-        ar-modes="scene-viewer quick-look webxr"
         :poster="state.shoe.posterUrl"
         :src="state.shoe.model"
         :ios-src="state.shoe.iosModel"
@@ -56,7 +55,7 @@ export default defineComponent({
             //redirect
             // console.log("niet aanwezig");
 
-            // router.push({name: "home"});
+            router.push({ name: "home" });
           }
           state.shoe = data;
         })

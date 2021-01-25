@@ -66,31 +66,36 @@
         src="@/assets/images/trapezium_right.svg"
         alt=""
       />
-      <div class="shoe-details" data-aos="fade-up">
-        <p class="name text-2xl">
-          Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
-        </p>
-        <p class="font-bold text-3xl mb-2 mt-2  text-grey">GREY</p>
-        <p class="description text-xl">
-          The iconic Nike Air Zoom Pegasus 36 has an updated upper with more
-          perforations and more targeted ventilation, namely in places where the
-          foot heats up quickly. The tongue and heel counter have a thinner
-          finish, without sacrificing comfort. The Flywire cables ensure that
-          the shoe fits perfectly around the foot.
-        </p>
-        <div
-          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
-        >
-          <router-link to="/details/1">Details</router-link>
-          <span class="c-app__button-underline"></span>
-        </div>
-      </div>
-      <img
+
+      <div
         data-aos="fade-up"
-        src="@/assets/images/shoes/Nike_Air_Zoom_36.png"
-        alt=""
-        class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
-      />
+        class="d-h align   flex mb-16 xl:mb-0 home-item  items-center xl:justify-between  xl:flex-row xl:h-screen home-item flex-col-reverse w-full"
+      >
+        <div class="shoe-details" data-aos="fade-up">
+          <p class="name text-2xl">
+            Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
+          </p>
+          <p class="font-bold text-3xl mb-2 mt-2  text-grey">GREY</p>
+          <p class="description text-xl">
+            The iconic Nike Air Zoom Pegasus 36 has an updated upper with more
+            perforations and more targeted ventilation, namely in places where
+            the foot heats up quickly. The tongue and heel counter have a
+            thinner finish, without sacrificing comfort. The Flywire cables
+            ensure that the shoe fits perfectly around the foot.
+          </p>
+          <div
+            class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
+          >
+            <router-link to="/details/1">Details</router-link>
+            <span class="c-app__button-underline"></span>
+          </div>
+        </div>
+        <img
+          src="@/assets/images/shoes/Nike_Air_Zoom_36.png"
+          alt="nike air zoom"
+          class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
+        />
+      </div>
     </div>
   </div>
   <newsletter />
