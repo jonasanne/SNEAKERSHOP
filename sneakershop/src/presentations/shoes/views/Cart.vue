@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col lg:flex-row justify-between align">
     <!-- left -->
-    <div class="pt-8 lg:w-3/4  px-6  lg:pr-14 ">
+    <div           data-aos="fade-right"
+ class="pt-8 lg:w-3/4  px-6  lg:pr-14">
       <div>
         <h1 class=" font-semibold text-3xl">My Cart</h1>
         <p>
@@ -259,7 +260,10 @@
     </div>
 
     <!-- right -->
-    <div class="bg-darkGrey pt-8 lg:w-1/4  lg:h-screen mt-12  lg:mt-0">
+    <div
+      data-aos="fade-left"
+      class="bg-darkGrey pt-8 lg:w-1/4  lg:h-screen mt-12  lg:mt-0"
+    >
       <!-- right -->
       <div>
         <!-- top -->
@@ -308,10 +312,11 @@
 
 <script lang="ts">
 import CartItem from "@/models/CartItem";
-import Shoe from "@/models/shoe";
 import router from "@/router";
 import { getItems, getItemById, deleteItem, seedData } from "@/utils/idb";
 import { defineComponent, reactive } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type State = {
   cartItems: Array<CartItem>;
@@ -322,6 +327,8 @@ type State = {
 
 export default defineComponent({
   setup() {
+    AOS.init();
+
     const state: State = reactive({
       cartItems: [],
       total: 0,
@@ -382,12 +389,12 @@ export default defineComponent({
     getCartItems();
 
     const removeShoeFromCart = async (cartItem: CartItem) => {
-      console.log("deleting item");
+      // console.log("deleting item");
 
       await deleteItem("cartItems", cartItem)
         .then((response: any) => {
           // reload page
-          console.log("reload");
+          // console.log("reload");
           location.reload();
         })
         .catch((error: any) => {

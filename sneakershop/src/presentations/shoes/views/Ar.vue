@@ -54,7 +54,7 @@ export default defineComponent({
         .then((data) => {
           if (data.title == undefined) {
             //redirect
-            console.log("niet aanwezig");
+            // console.log("niet aanwezig");
 
             // router.push({name: "home"});
           }

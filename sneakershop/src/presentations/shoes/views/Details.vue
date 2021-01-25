@@ -14,7 +14,7 @@
       >
         <path id="greyBg" d="M0,0H849.8l.2,950H0Z" fill="#fbfbfb" />
       </svg>
-      <div>
+      <div data-aos="fade-up">
         <p class="text-3xl">
           {{ state.shoe.title }}
         </p>
@@ -27,7 +27,7 @@
         />
       </div>
     </div>
-    <div class="w-full detail-item__description">
+    <div class="w-full detail-item__description" data-aos="fade-up">
       <!-- right -->
       <p class="font-semibold text-2xl mb-2 mt-8 ">Description</p>
       <hr class="underline-grey " />
@@ -38,7 +38,7 @@
       <p class="font-semibold text-2xl mb-2 mt-8 ">Select size</p>
       <hr class="underline-grey" />
 
-      <form action="POST">
+      <form>
         <div class="flex flex-wrap flex-row mt-5">
           <input
             v-model="state.shoe.selectedSize"
@@ -56,7 +56,6 @@
             type="radio"
             name="size"
             id="size-37"
-            checked="true"
           />
           <label class="for-radiobutton-size" for="size-37">37</label>
 
@@ -193,6 +192,8 @@ import { defineComponent, reactive } from "vue";
 import { getItemById, getItems, saveItem } from "@/utils/idb";
 import Shoe from "@/models/shoe";
 import router from "@/router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type State = {
   shoe: Shoe;
@@ -200,6 +201,7 @@ type State = {
 
 export default defineComponent({
   setup() {
+    AOS.init();
     const state: State = reactive({
       shoe: {
         id: 0,
@@ -217,7 +219,7 @@ export default defineComponent({
     });
 
     const addItemToCart = async (id: number) => {
-      console.log(`adding item to cart with id: ${id}`);
+      // console.log(`adding item to cart with id: ${id}`);
       //amount and selectedsize toevoegen
       if (state.shoe.amount == undefined) {
         alert("please choose an amount.");
@@ -246,7 +248,7 @@ export default defineComponent({
         price: state.shoe.price,
       };
       const cartItems = await getItems("cartItems");
-      console.log(cartItems);
+      // console.log(cartItems);
 
       const checkCartItemExists = cartItems.find(
         (obj: { shoe: { id: number } }) => {
@@ -257,7 +259,7 @@ export default defineComponent({
       if (!checkCartItemExists) {
         await saveItem("cartItems", newCartItem)
           .then((response) => {
-            console.log("correct");
+            // console.log("correct");
             alert("Item correctly added to your cart.");
             router.push({ name: "cart" });
           })
@@ -278,9 +280,9 @@ export default defineComponent({
         .then((data) => {
           if (data.title == undefined) {
             //redirect
-            console.log("niet aanwezig");
+            // console.log("niet aanwezig");
 
-            // router.push({name: "home"});
+            router.push({ name: "home" });
           }
           state.shoe = data;
         })

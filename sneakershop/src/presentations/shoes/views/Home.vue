@@ -3,16 +3,18 @@
     class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
   >
     <img
+      data-aos="fade-left"
       class="absolute inset-0 z-m-1 trapezium-left invisible xl:visible"
       src="@/assets/images/trapezium-left.svg"
       alt=""
     />
     <img
+      data-aos="zoom-in"
       src="@/assets/images/shoes/Nike_Air_Zoom.png"
       alt=""
       class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
     />
-    <div class="shoe-details">
+    <div class="shoe-details" data-aos="zoom-in">
       <p class="name text-2xl">
         Nike <span class="font-semibold">Air Zoom</span> Pegasus 35
       </p>
@@ -59,11 +61,12 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between  xl:flex-row xl:h-screen home-item flex-col-reverse"
     >
       <img
+        data-aos="fade-right"
         class="absolute z-m-1 trapezium-left invisible xl:visible right-0"
         src="@/assets/images/trapezium_right.svg"
         alt=""
       />
-      <div class="shoe-details">
+      <div class="shoe-details" data-aos="fade-up">
         <p class="name text-2xl">
           Nike <span class="font-semibold">Air Zoom</span> Pegasus 36
         </p>
@@ -83,6 +86,7 @@
         </div>
       </div>
       <img
+        data-aos="fade-up"
         src="@/assets/images/shoes/Nike_Air_Zoom_36.png"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0 flip-image"
@@ -92,6 +96,7 @@
   <newsletter />
   <div class="relative">
     <img
+      data-aos="fade-left"
       class="absolute inset-0 z-m-1 trapezium-left invisible xl:visible"
       src="@/assets/images/trapezium-left.svg"
       alt=""
@@ -100,11 +105,12 @@
       class="d-h align px-6 md:px-20 flex mb-16 xl:mb-0 home-item  items-center xl:justify-between flex-col xl:flex-row xl:h-screen home-item"
     >
       <img
+        data-aos="fade-up"
         src="@/assets/images/shoes/Vans_Old_Skool.png"
         alt=""
         class="shoe-image mt-20 xl:mt-0 mb-12 xl:mb-0"
       />
-      <div class="shoe-details">
+      <div class="shoe-details" data-aos="fade-up">
         <p class="name text-2xl">
           Vans <span class="font-semibold">Old Skool </span> Low Sneakers
         </p>
@@ -117,7 +123,7 @@
           of Vans shoes is also included.
         </p>
         <div
-          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4 "
+          class="uppercase c-app__button-home py-3 text-center bg-mint mt-4  mb-20"
         >
           <router-link to="/details/4">Details</router-link>
           <span class="c-app__button-underline"></span>
@@ -132,11 +138,14 @@ import { defineComponent } from "vue";
 import Brands from "@/presentations/shoes/components/Brands.vue";
 import Newsletter from "@/presentations/shoes/components/Newsletter.vue";
 import { getItems, seedData } from "@/utils/idb";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default defineComponent({
   setup() {
     //
     seedData();
+    AOS.init();
   },
   components: {
     Brands,
