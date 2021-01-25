@@ -37,7 +37,7 @@ const shoes: Array<Shoe> = [
     id: 3,
     title: "Nike Air Zoom Pegasus 35",
     description:
-      "The Nike Pegasus Kids Running Shoes are always a winning bet as they are the ideal choice for your child's first steps in training. Expected every year by runners and athletes around the world, the Pegasus is one of the best trainers in the world and the 35 series is certainly no exception to this rule.",
+      "The Nike Air Zoom Pegasus 35 for men are neutral running shoes. The shoes provide responsive cushioning. The thirty-fifth edition of one of Nike's most popular shoes features a full-length Zoom Air unit and a more streamlined design.",
     color: "BLACK",
     sizes: [36, 38, 39, 43, 44],
     price: 69.99,
@@ -50,7 +50,7 @@ const shoes: Array<Shoe> = [
     id: 4,
     title: "Vans Old Skool Low Sneakers",
     description:
-      "The Old Skool shoe is a true Vans classic; a low top lace-up shoe that was the first to wear the iconic side stripe. The shoe is lined, has padded cuffs for support and flexibility and the reinforced toe cap can take a beating. Of course, the waffle sole that is characteristic of Vans shoes is also included.",
+      "The Old Skool shoe is a true Vans classic. a low top lace-up shoe that was the first to wear the iconic side stripe. The shoe is lined, has padded cuffs for support and flexibility and the reinforced toe cap can take a beating. Of course, the waffle sole that is characteristic of Vans shoes is also included.",
     color: "BLUE",
     sizes: [36, 38, 39, 43, 42, 44],
     price: 49.99,
